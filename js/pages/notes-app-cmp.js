@@ -1,5 +1,7 @@
 import notesService from '../services/notes-service.js'
 import textNote from '../cmps/notes/note-text-cmp.js'
+import imgNote from '../cmps/notes/note-img-cmp.js'
+import todoNote from '../cmps/notes/note-todo-cmp.js'
 
 export default {
     name: 'email',
@@ -7,13 +9,10 @@ export default {
     <section class="notes-app">
         <button @click="goBack">Back to Appsus</button>
         <h1>Notes APp down here</h1>
-        <!-- <ul>
-            <li v-for="note in notes">
-            <h4>{{note.title}}</h4>
-            {{note.text}}
-            </li>
-        </ul> -->
-        <component v-for="note in notes" :is="note.type" :data="note.data"></component>
+        <i class="fas fa-image"></i>
+        <i class="fas fa-pen-square"></i>
+        <i class="fas fa-list"></i>
+        <component v-for="note in notes" :is="note.type" :data="note.data" :key="note.key"></component>
     </section>
     `,
     data() {
@@ -35,8 +34,8 @@ export default {
     },
     components: {
         textNote,
-        // imgNote,
-        // todoNote,
+        imgNote,
+        todoNote,
         // audioNote,
         // mapNote
     }
