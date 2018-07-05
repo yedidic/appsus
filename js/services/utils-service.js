@@ -1,18 +1,5 @@
 console.log('utils service');
 
-<<<<<<< HEAD
-function saveToStorage(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
-}
-function loadFromStorage(key) {
-    var str = localStorage.getItem(key);
-    return JSON.parse(str);
-}
-
-export default {
-    saveToStorage,
-    loadFromStorage
-=======
 export default {
     saveToStorage,
     loadFromStorage,
@@ -36,5 +23,4 @@ function makeid(length=8) {
       text += possible.charAt(Math.floor(Math.random() * possible.length));
   
     return text;
->>>>>>> bdf5ee91f534c4377c4696a116f80a78ea8af67b
 }
