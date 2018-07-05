@@ -7,7 +7,7 @@ Vue.use(VueRouter);
 const router = new VueRouter({ routes });
 
 new Vue({
-    el: '#appsus-app',
+    el: '#app',
     router,
     components: {
         appsusPage

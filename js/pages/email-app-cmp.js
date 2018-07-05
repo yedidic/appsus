@@ -4,8 +4,16 @@ export default {
     name: 'email-app',
     template: `
     <section class="email-app">
-        <h1>Email APP down here</h1>
-        <button @click="goBack">Back to Appsus</button>
+        <button class="compose-btn">Compose</button>
+        <main class="flex">
+            <email-list>
+                <email-filter></email-filter>
+                <email-preview></email-preview>
+            </email-list>
+
+            <email-details class="no-mobile"></email-details>
+        </main>
+        <email-status></email-status>
     </section>
     `,
     methods: {

@@ -1,7 +1,12 @@
 console.log('email service');
 
-function tempMails() {
-    return [
+import utilsService from './utils-service.js';
+
+const EMAIL_KEY = 'email'
+
+
+function getTempEmails() {
+    let tempEmails =  [
         {
             subject: 'Ani Adam mamash Tov',
             from: { name: 'Adam Anak Mamash', mail: 'adam@anak.mamsh' },
@@ -26,7 +31,17 @@ function tempMails() {
             msg: 'cccccdcccccd cccccd cccccd cccccd cccccd cccccd /n cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccdccc',
             isRead: false
         }
-    ]
+    ];
+    // utilsService.saveToStorage(EMAIL_KEY, tempEmails)
+    return tempEmails;
+}
+let emails = getTempEmails();
 
+function query(){
+    // emails = utilsService.loadFromStorage(EMAIL_KEY)
+    return Promise.resolve(emails);
+}
 
+export default{
+    query,
 }
