@@ -1,4 +1,5 @@
 'use strict';
+
 import appsusPage from './pages/appsus-page-cmp.js';
 import routes from './routes.js'
 console.log('Main JS :)')
