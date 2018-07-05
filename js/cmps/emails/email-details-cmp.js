@@ -20,7 +20,6 @@ export default {
     },
     watch: {
         '$route.params.emailId': function (newEmailId) {
-            console.log('$route.params.emailId has changed!', newEmailId);
             if (!newEmailId) this.loadFirstIdxEmail()
             else this.loadEmail();
         }

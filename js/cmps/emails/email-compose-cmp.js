@@ -7,9 +7,13 @@ import emailService from '../../services/email-service.js';
 export default {
     name: 'email-compose',
     template: `
-    <section class="email-compose flex column">
-       <form>
-           
+    <section class="email-compose">
+       <form class="flex column">
+            <label>Subject<input type="text" v-model="email.subject" placeholder="Subject"/></label>
+            <label>To<input type="email" v-model="email.to.address" placeholder="To"/></label>
+            <textarea v-model="email.msg" placeholder="Enter your message here"></textarea>  
+
+            <router-link to="/email" @click.native.prevent="setNewEmail" tag="button">Send!</router-link>
        </form>
        <pre> {{email}} </pre>
     </section>
@@ -17,29 +21,22 @@ export default {
 
     data() {
         return {
-            email: {}
+            email: {
+                subject: '',
+                from: { name: 'Me MaMi', address: 'me@me.com' },
+                sent: moment().format('lll'),
+                to: { name: '', address: '' },
+                msg: '',
+                isRead: false
+            }
         }
-    },
-    watch: {
-        '$route.params.emailId': function (newEmailId) {
-            console.log('$route.params.emailId has changed!', newEmailId);
-            if (!newEmailId) this.loadFirstIdxEmail()
-            else this.loadEmail();
-        }
-    },
-    created() {
-        this.loadFirstIdxEmail()
     },
     methods: {
-        loadEmail() {
-            emailService.getById(this.$route.params.emailId)
-                .then(email => this.email = email)
-        },
-        loadFirstIdxEmail() {
-            emailService.query()
-                .then(emails => {
-                    this.email = emails[0]
-                })
+        setNewEmail() {
+            this.email.sent = moment().format('lll');
+            emailService.setNewEmail(this.email)
+                .then(() =>
+                    console.log('New Email Sent!'))
         }
     }
 

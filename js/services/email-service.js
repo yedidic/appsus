@@ -10,27 +10,27 @@ function getTempEmails() {
         {
             id: '1fg3sD',
             subject: 'Ani Adam mamash Tov',
-            from: { name: 'Adam Anak Mamash', email: 'adam@anak.mamsh' },
+            from: { name: 'Adam Anak Mamash', address: 'adam@anak.mamsh' },
             sent: moment('2010-10-20').format(DATE_FORMAT),
-            to: { name: 'Jacky Chan', email: 'jacky@mami.mamsh' },
+            to: { name: 'Jacky Chan', address: 'jacky@mami.mamsh' },
             msg: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente num /n quam alias culpa neque nihil expedita vero quo similique id ipsam, maiores consequatur dolorem porro qui est quam quod? Et, vero.',
             isRead: false
         },
         {
             id: '2fg3sD',
             subject: 'Baba Mamash Ohev Mama',
-            from: { name: 'Baba Avitan', email: 'baba@avitan.king' },
+            from: { name: 'Baba Avitan', address: 'baba@avitan.king' },
             sent: moment('2015-02-20').format(DATE_FORMAT),
-            to: { name: 'Mama Abukhaliph', email: 'mama@abukhaliph.net' },
+            to: { name: 'Mama Abukhaliph', address: 'mama@abukhaliph.net' },
             msg: 'Ba babababababab babababb  bababababab bababababab babababbab /n ababababab babababab babababababqa babbabababababababa abababababababababa',
             isRead: true
         },
         {
             id: '3fg3sD',
             subject: 'Ckhhhh Ckhhh Ckhhhh',
-            from: { name: 'Chaim Moshe', email: 'chaim@moshe.com' },
+            from: { name: 'Chaim Moshe', address: 'chaim@moshe.com' },
             sent: moment('2018-05-03').format(DATE_FORMAT),
-            to: { name: 'Jacky Chan', email: 'jacky@mami.mamsh' },
+            to: { name: 'Jacky Chan', address: 'jacky@mami.mamsh' },
             msg: 'cccccdcccccd cccccd cccccd cccccd cccccd cccccd /n cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccdccc',
             isRead: false
         }
@@ -64,8 +64,17 @@ function changeEmailReadStatus(id, isRead = true) {
     })
 
 }
+function setNewEmail(email) {
+    return new Promise((resolve, reject) => {
+        email.id = utilsService.makeid();
+        emails.unshift(email);
+        utilsService.saveToStorage(EMAILS_KEY, emails);
+        resolve();
+    })
+}
 export default {
     query,
     changeEmailReadStatus,
-    getById
+    getById,
+    setNewEmail
 }

@@ -8,14 +8,14 @@ export default {
     name: 'email-app',
     template: `
     <section class="email-app">
-        <button class="compose-btn">Compose</button>
+        <router-link tag="button" to="/email/compose"class="compose-btn">Compose</router-link>
         <main class="flex">
             <div class="flex column">
                     <email-filter 
                     :emails="emails" 
                     @filter="setFilter"
                     ></email-filter>
-                    <email-list :emails="emailsToShow" class="flex column">
+                    <email-list :emails="emailsToShow" class="flex column" @opened="loadEmails">
                     </email-list>
             </div>
 
@@ -32,7 +32,13 @@ export default {
         setFilter(filtBy) {
             console.log('filtering...', filtBy)
             this.filterBy = filtBy;
-        }
+        },
+        loadEmails(){
+            emailService.query()
+           .then(emails => {
+               this.emails = emails
+           })
+       }
     },
     data() {
         return {
@@ -44,10 +50,7 @@ export default {
         }
     },
     created() {
-        emailService.query()
-            .then(emails => {
-                this.emails = emails
-            })
+        this.loadEmails()
 
         // this.emails = this.emailsToShow;
     },
@@ -62,12 +65,13 @@ export default {
                     && ((email.subject.toLowerCase().includes(txtFilter))
                         || (email.msg.toLowerCase().includes(txtFilter))
                         || (email.from.name.toLowerCase().includes(txtFilter))
-                        || (email.from.email.toLowerCase().includes(txtFilter))
-                        || (email.to.email.toLowerCase().includes(txtFilter))
+                        || (email.from.address.toLowerCase().includes(txtFilter))
+                        || (email.to.address.toLowerCase().includes(txtFilter))
                         || (email.to.name.toLowerCase().includes(txtFilter)));
             })
             return filteredEmails;
-        }
+        },
+
     },
     components: {
         emailList,

@@ -16,17 +16,22 @@ export default {
         </ul>
     </section>
     `,
-                
-       
+
+
     mounted() {
     },
     methods: {
-        makeUnread(emailId){
+        makeUnread(emailId) {
             emailService.changeEmailReadStatus(emailId)
+                .then(() => this.$emit('opened')
+                )
         }
     },
     components: {
         emailPreview
+    },
+    watch: {
+
     }
 
 
