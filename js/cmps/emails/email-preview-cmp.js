@@ -6,8 +6,9 @@ export default {
     props: ['email'],
     template: `
     <section class="email-preview flex">
-        <img :src="imgSrc"/>
-        <div class="flex column">
+        <i class="fas fa-envelope-open" v-if="email.isRead"></i>
+        <i class="fas fa-envelope-close" v-else></i>
+    <div class="flex column">
             <h4 class="email-subj">{{email.subject}}</h4>
             <h4>{{email.from.name}}</h4>
         </div>
@@ -17,7 +18,6 @@ export default {
 
     data() {
         return {
-            imgSrc: ''
         }
     },
 
@@ -27,10 +27,6 @@ export default {
     mounted() {
     },
     methods: {
-        getImgUrl() {
-            if (this.email.isRead) this.imgSrc = 'img/email/read-icon.png'
-            else this.imgSrc = 'img/email/unread-icon.png'
-        }
     },
     components: {
     }
