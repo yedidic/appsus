@@ -1,0 +1,14 @@
+
+.email-preview {
+  width: 400px;
+  height: 50px;
+  padding: 1em;
+  margin: 10px;
+  background: pink;
+
+}
+
+.email-preview img {
+  height: 45px;
+  width: auto;
+}

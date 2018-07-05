@@ -1,7 +1,8 @@
+@import url("./email/email-preview.css");
+
 * {
     box-sizing: border-box
 }
-
 
 /* Helper */
 body {
