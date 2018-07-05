@@ -1,0 +1,27 @@
+
+.email-preview {
+    width: 400px;
+    height: 50px;
+    padding: 10px;
+    margin: 10px;
+    background: rgb(192, 221, 255);
+}
+.email-preview i {
+  margin-right: 10px
+}
+
+.email-preview h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 0.75rem;
+  
+}
+.email-preview .email-subj {
+  width:230px;
+  font-size: 1rem;
+}
+.email-preview h5 {
+  margin: 0;
+  text-align: center;
+}
+
