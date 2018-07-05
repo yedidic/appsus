@@ -1,6 +1,5 @@
 import notesService from '../services/notes-service.js'
 import textNote from '../cmps/notes/note-text-cmp.js'
-import imgNote from '../cmps/notes/note-img-cmp.js'
 import todoNote from '../cmps/notes/note-todo-cmp.js'
 
 export default {
@@ -34,7 +33,6 @@ export default {
     },
     components: {
         textNote,
-        imgNote,
         todoNote,
         // audioNote,
         // mapNote

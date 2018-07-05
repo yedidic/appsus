@@ -1,19 +1,15 @@
 
 export default {
-    props: ['data'],
+    props: ['id'],
     template: `
-    <section class='note img-note'>
+    <section class='edit-add-txt'>
         <h4>{{data.title}}</h4>
-        <img :src="data.imgUrl"/>
+        {{data.text}}
     </section>
     `,
     data() {
         return {
             // data: this.data
         }
-    },
-    created() {
-        // console.log(this.data);
-        
     }
 }

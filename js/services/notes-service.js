@@ -13,7 +13,7 @@ function getFakeNotes() {
         {type: 'textNote', key: utilsService.makeid(),
          data: {title:'Dream 05/07/18', text: 'I dreamt I finished sprint 3 and then a monster with 3 heads ate me'}
         },
-        {type: 'imgNote', key: utilsService.makeid(),
+        {type: 'textNote', key: utilsService.makeid(),
          data: {title:'A beautiful bird', imgUrl: '/img/notes/beautiful-bird.jpg'}
         },
         {type: 'todoNote', key: utilsService.makeid(), 
