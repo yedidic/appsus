@@ -10,13 +10,13 @@ if (!notes) {
 
 function getFakeNotes() {
     return [
-        {type: 'textNote', key: utilsService.makeid(),
+        {type: 'textNote', id: utilsService.makeid(),
          data: {title:'Dream 05/07/18', text: 'I dreamt I finished sprint 3 and then a monster with 3 heads ate me'}
         },
-        {type: 'imgNote', key: utilsService.makeid(),
+        {type: 'textNote', id: utilsService.makeid(),
          data: {title:'A beautiful bird', imgUrl: '/img/notes/beautiful-bird.jpg'}
         },
-        {type: 'todoNote', key: utilsService.makeid(), 
+        {type: 'todoNote', id: utilsService.makeid(), 
          data: {title: 'Finish before 26/07/18' ,todos:[ {txt:'Mastering Vue.JS', isDone: false}, 
                                                          {txt:'Feeding Muki', isDone: false},
                                                          {txt:'Finishing sprint 3', isDone: true},
@@ -30,6 +30,11 @@ function query() {
     return Promise.resolve(notes);
 }
 
+function getById(id) {
+    return notes.find((note) => note.id === id);
+}
+
 export default {
-    query
+    query,
+    getById
 }

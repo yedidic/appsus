@@ -1,5 +1,6 @@
-@import url("./email/email-preview.css");
 
+@import url("./notes-style/notes-app.css");
+@import url("./email/email-preview.css");
 * {
     box-sizing: border-box
 }
@@ -57,6 +58,10 @@ body {
     list-style-type: none;
     padding: 0;
   }
-  
+
+  /* .notes-app {
+    margin: 100px;
+} */
+
   /* !/Helper */
   

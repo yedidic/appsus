@@ -1,4 +1,4 @@
-console.log('utils service');
+// console.log('utils service');
 
 export default {
     saveToStorage,

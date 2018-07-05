@@ -1,0 +1,29 @@
+
+.notes-app {
+    margin: 10px;
+}
+
+.note {
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid gray;
+    margin: 1em;
+    padding: 1em;
+    transition: 0.3s
+}
+
+.note:hover {
+    transform: scale(1.03)
+}
+
+.note img {
+    max-width: 250px;
+}
+
+.note h4 {
+    margin-top: 0;
+}
+
+.note .todo-done {
+    text-decoration: line-through;
+}
