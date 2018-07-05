@@ -6,7 +6,6 @@ export default {
     name: 'email-list',
     template: `
     <section class="email-list">
-        email list
         <ul>
             <!-- <email-filter></email-filter> -->
             <li v-for="(email, idx) in emails" :key="email.id">

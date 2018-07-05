@@ -5,9 +5,9 @@ export default {
     name: 'email-preview',
     props: ['email'],
     template: `
-    <section class="email-preview flex">
+    <section class="email-preview flex center-items">
         <i class="fas fa-envelope-open" v-if="email.isRead"></i>
-        <i class="fas fa-envelope-close" v-else></i>
+        <i class="fas fa-envelope" v-else></i>
     <div class="flex column">
             <h4 class="email-subj">{{email.subject}}</h4>
             <h4>{{email.from.name}}</h4>
@@ -22,7 +22,6 @@ export default {
     },
 
     created() {
-        this.getImgUrl()
     },
     mounted() {
     },
