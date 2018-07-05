@@ -10,8 +10,8 @@ export default {
         <h1>Notes:</h1>
         <div class="add-note-btns">
             <i class="fas fa-image" ></i>
-            <i class="fas fa-pen-square"></i>
-            <i class="fas fa-list"></i>
+            <i class="fas fa-pen-square" @click="$router.push('/notes/edit-add/text/')"></i>
+            <i class="fas fa-list" @click="$router.push('/notes/edit-add/todo/')"></i>
         </div>
         <component v-for="note in notes" :is="note.type" :data="note.data" :key="note.id" @click.native="editNote(note)"></component>
     </section>

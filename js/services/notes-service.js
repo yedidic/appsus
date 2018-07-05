@@ -34,7 +34,32 @@ function getById(id) {
     return notes.find((note) => note.id === id);
 }
 
+function saveNote(sentNote) {
+    let note = getById(sentNote.id)
+    return new Promise((resolve) => {
+        if (note) {
+            note = sentNote;
+        } else {
+            notes.push(sentNote)
+        }
+        console.log(notes);
+        
+        utilsService.saveToStorage(NOTES_KEY, notes)
+        resolve(note)
+    })
+}
+
+function getEmptyNote(type) {
+    let emptyNote = {'type': type, id: utilsService.makeid(),
+            data: {title:'', text: '', imgUrl:'', todos:[]}
+   }
+   console.log(emptyNote);
+   return emptyNote
+}
+
 export default {
     query,
-    getById
+    getById,
+    saveNote,
+    getEmptyNote
 }
