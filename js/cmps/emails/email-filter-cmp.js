@@ -7,12 +7,11 @@ export default {
     template: `
         <section class="email-filter">
             <h1>filter</h1>
-            <pre>{{filterBy}}</pre>
             <form>
                 <input type="text" v-model="filterBy.txt" @keydown.enter="filterList"/>
                 <label>
                     All
-                    <input type="radio" value="all" v-model="filterBy.ctg" @click="filterList">
+                    <input type="radio" value="all" v-model="filterBy.ctg" @click="filterList" checked>
                 </label>
                 <label>
                     Read
@@ -34,15 +33,8 @@ export default {
         }
     },
     methods: {
-        filterList(){
+        filterList() {
             this.$emit('filter', this.filterBy)
         }
-    },
-    watch: {
-        filterBy(newVal) {
-            console.log('newVal', newVal)
-        }
     }
-
-
 }

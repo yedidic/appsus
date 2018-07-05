@@ -5,10 +5,12 @@ import emailService from '../../services/email-service.js';
 
 
 export default {
-    name: 'email-details',
+    name: 'email-compose',
     template: `
-    <section class="email-detaills flex column">
-        Mami Mitranderet
+    <section class="email-compose flex column">
+       <form>
+           
+       </form>
        <pre> {{email}} </pre>
     </section>
                 `,

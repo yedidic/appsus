@@ -1,5 +1,6 @@
 import emailService from '../services/email-service.js';
 
+import emailDetails from '../cmps/emails/email-details-cmp.js'
 import emailList from '../cmps/emails/email-list-cmp.js'
 import emailFilter from '../cmps/emails/email-filter-cmp.js'
 
@@ -15,11 +16,10 @@ export default {
                     @filter="setFilter"
                     ></email-filter>
                     <email-list :emails="emailsToShow" class="flex column">
-                        <email-preview></email-preview>
                     </email-list>
             </div>
 
-            <!-- <email-details class="no-mobile"></email-details> -->
+            <email-details class="no-mobile"></email-details>
         </main>
         <!-- <email-status></email-status> -->
     </section>
@@ -71,6 +71,7 @@ export default {
     },
     components: {
         emailList,
-        emailFilter
+        emailFilter,
+        emailDetails
     },
 }

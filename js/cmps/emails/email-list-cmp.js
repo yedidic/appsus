@@ -1,5 +1,6 @@
-import emailPreview from './email-preview-cmp.js'
+import emailService from '../../services/email-service.js'
 
+import emailPreview from './email-preview-cmp.js'
 
 export default {
     name: 'email-list',
@@ -8,7 +9,7 @@ export default {
     <section class="email-list">
         <ul>
             <li v-for="(email, idx) in emails" :key="email.id">
-                <router-link :to="'/email/'+email.id">
+                <router-link :to="'/email/'+email.id" @click.native="makeUnread(email.id)">
                 <email-preview :email="email"></email-preview>
                 </router-link>
             </li>
@@ -20,6 +21,9 @@ export default {
     mounted() {
     },
     methods: {
+        makeUnread(emailId){
+            emailService.changeEmailReadStatus(emailId)
+        }
     },
     components: {
         emailPreview

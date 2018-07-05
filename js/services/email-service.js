@@ -35,18 +35,37 @@ function getTempEmails() {
             isRead: false
         }
     ];
-    // utilsService.saveToStorage(EMAIL_KEY, tempEmails)
+    utilsService.saveToStorage(EMAILS_KEY, tempEmails)
     return tempEmails;
 }
-// let emails = utilsService.loadFromStorage(EMAILS_KEY);
-// if(!emails) emails = getTempEmails();
-let emails = getTempEmails();
+let emails = utilsService.loadFromStorage(EMAILS_KEY);
+if (!emails) getTempEmails();
+
 
 function query() {
-    // emails = utilsService.loadFromStorage(EMAILS_KEY)
+    emails = utilsService.loadFromStorage(EMAILS_KEY)
     return Promise.resolve(emails);
 }
 
+function getById(id) {
+    let currEmail = emails.find(email => email.id === id)
+    return Promise.resolve(currEmail);
+}
+
+function changeEmailReadStatus(id, isRead = true) {
+    return new Promise((resolve, reject) => {
+        getById(id)
+            .then((email) => {
+                email.isRead = isRead;
+                utilsService.saveToStorage(EMAILS_KEY, emails);
+                resolve(email);
+            })
+
+    })
+
+}
 export default {
     query,
+    changeEmailReadStatus,
+    getById
 }
