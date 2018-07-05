@@ -13,7 +13,7 @@ export default {
             <i class="fas fa-pen-square" @click="$router.push('/notes/edit-add/text/')"></i>
             <i class="fas fa-list" @click="$router.push('/notes/edit-add/todo/')"></i>
         </div>
-        <component v-for="note in notes" :is="note.type" :data="note.data" :key="note.id" @click.native="editNote(note)"></component>
+        <component v-for="note in notes" :is="note.type" :data="note.data" :key="note.id" :style="{'background-color': note.bgc}" @click.native="editNote(note)"></component>
     </section>
     `,
     data() {

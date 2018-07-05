@@ -10,7 +10,14 @@ export default {
             <textarea v-model="note.data.text"></textarea>
             <img v-if="note.data.imgUrl" :src="note.data.imgUrl"/>
         </div>
+        <input type="color" value="AB8BA8" v-model="note.bgc">
+        <!-- <input class="jscolor" v-model="note.bgc"> -->
+        <!-- <jscolor v-model="note.bgc"></jscolor> -->
         <button @click="saveNote">Save</button>
+
+        <pre>
+            {{note}}
+        </pre>
     </section>
     `,
     created() {
@@ -18,7 +25,10 @@ export default {
         if (!this.note) {
             this.note = notesService.getEmptyNote('textNote')
         }
-    },    
+    },
+    mounted() {
+        // jscolor.bind()    
+    },
     data() {
         return {
             note: null,
@@ -27,13 +37,13 @@ export default {
     },
     methods: {
         goBack() {
-			this.$router.push('/notes');
+            this.$router.push('/notes');
         },
         saveNote() {
             notesService.saveNote(this.note)
-            .then(() => {
-                this.$router.push('/notes');
-            })
+                .then(() => {
+                    this.$router.push('/notes');
+                })
         }
-    }
+    },
 }
