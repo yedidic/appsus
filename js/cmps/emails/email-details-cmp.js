@@ -7,37 +7,50 @@ import emailService from '../../services/email-service.js';
 export default {
     name: 'email-details',
     template: `
-    <section class="email-detaills flex column">
-        Mami Mitranderet
-       <pre> {{email}} </pre>
+    <section class="email-details flex column">
+    <router-link tag="button" to="/email">Back to List</router-link>
        <h2>{{email.subject}}</h2>
-       <h3 v-if="email.from">From: {{email.from.name}} <{{email.from.address}}></h3>
+       <h3>From: {{email.from.name}} <{{email.from.address}}></h3>
        <h4>Sent: {{email.sent}}</h4>
-       <!-- Why need for V-if??? -->
-       <h3 v-if="email.to">To: {{email.to.name}} <{{email.to.address}}> </h3>
-       <p>{{email.msg}}</p>
+       <h3>To: {{email.to.name}} <{{email.to.address}}> </h3>
+       <div class="pre-wrapper">
+            <pre>{{email.msg}}</pre>
+       </div>
     </section>
                 `,
 
     data() {
         return {
-            email: {}
+            email: {
+                id: '',
+                subject: '',
+                from: { name: '', address: '' },
+                sent: '',
+                to: { name: '', address: '' },
+                msg: '',
+                isRead: false
+            },
+            mobileMode: false
         }
     },
     watch: {
         '$route.params.emailId': function (newEmailId) {
-            if (!newEmailId) this.loadFirstIdxEmail()
+            // console.log('id changed', newEmailId)
+            // if (!newEmailId) this.loadFirstIdxEmail()
             this.loadEmail();
         }
     },
     created() {
-        this.loadFirstIdxEmail()    
-        
+        this.loadEmail()
     },
     mounted() {
     },
     methods: {
         loadEmail() {
+            if (!this.$route.params.emailId) {
+                this.loadFirstIdxEmail()
+                return;
+            }
             emailService.getById(this.$route.params.emailId)
                 .then(email => this.email = email)
         },
