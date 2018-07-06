@@ -30,7 +30,6 @@ export default {
             this.$router.push('/');
         },
         setFilter(filtBy) {
-            console.log('filtering...', filtBy)
             this.filterBy = filtBy;
         },
         loadEmails(){

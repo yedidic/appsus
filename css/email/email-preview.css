@@ -1,4 +1,6 @@
-
+.email-preview.active {
+  background: lightgreen;
+}
 .email-preview {
     width: 400px;
     height: 50px;
