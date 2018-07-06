@@ -1,0 +1,15 @@
+.email-app header{
+  text-align: center;
+}
+
+.email-app main {
+  /* align-items: center; */
+  justify-content: center;
+}
+
+
+@media (max-width: 400px){
+  .email-app *.no-mobile {
+    display: none;
+  }
+}

@@ -6,7 +6,6 @@ export default {
     name: 'email-filter',
     template: `
         <section class="email-filter">
-            <h1>filter</h1>
             <form>
                 <input type="text" v-model="filterBy.txt" @keydown.enter="filterList"/>
                 <label>

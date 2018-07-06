@@ -1,0 +1,17 @@
+.email-details {
+  background: lemonchiffon;
+  padding: 10px;
+}
+.email-details * {
+  margin: 0 0 0.5rem 0;
+}
+.email-details .pre-wrapper {
+  /* color:red; */
+  width: 250px;
+  background: lightsalmon;
+}
+.email-details pre {
+  word-wrap: break-word;
+  white-space: pre-line;
+}
+

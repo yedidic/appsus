@@ -8,9 +8,13 @@ export default {
     name: 'email-app',
     template: `
     <section class="email-app">
-        <router-link tag="button" to="/email/compose"class="compose-btn">Compose</router-link>
-        <main class="flex">
-            <div class="flex column">
+    <router-link tag="button" to="/email/compose" class="compose-btn">Compose</router-link>
+    <header>
+    <h1>Email Appsus</h1>
+    </header>
+    <main class="flex">
+            <div class="flex column email-list-container" 
+            :class="{'no-mobile': isEmailIdInUrl}">
                     <email-filter 
                     :emails="emails" 
                     @filter="setFilter"
@@ -19,8 +23,8 @@ export default {
                     </email-list>
             </div>
 
-            <email-details class="no-mobile"></email-details>
-        </main>
+            <email-details :class="{'no-mobile': !isEmailIdInUrl}"></email-details>
+    </main>
         <!-- <email-status></email-status> -->
     </section>
     `,
@@ -30,7 +34,6 @@ export default {
             this.$router.push('/');
         },
         setFilter(filtBy) {
-            console.log('filtering...', filtBy)
             this.filterBy = filtBy;
         },
         loadEmails(){
@@ -46,13 +49,12 @@ export default {
             filterBy: {
                 txt: '',
                 ctg: 'all'
-            }
+            },
+            isEmailIdInUrl: false
         }
     },
     created() {
         this.loadEmails()
-
-        // this.emails = this.emailsToShow;
     },
     computed: {
         emailsToShow() {
@@ -71,11 +73,16 @@ export default {
             })
             return filteredEmails;
         },
-
     },
     components: {
         emailList,
         emailFilter,
         emailDetails
     },
+    watch: {
+        '$route.params.emailId': function (newEmailId) {
+            if(!newEmailId) this.isEmailIdInUrl = false;
+            else this.isEmailIdInUrl = true;
+        }
+    }
 }

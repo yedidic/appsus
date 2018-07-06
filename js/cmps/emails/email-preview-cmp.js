@@ -6,7 +6,7 @@ export default {
     name: 'email-preview',
     props: ['email'],
     template: `
-    <section class="email-preview flex center-items">
+    <section class="email-preview flex center-items" :class="{active: isActive}">
         <i class="fas fa-envelope-open" v-if="email.isRead"></i>
         <i class="fas fa-envelope" v-else></i>
     <div class="flex column">
@@ -19,6 +19,25 @@ export default {
 
     data() {
         return {
+            isActive: false
         }
     },
+    methods: {
+        checkIfOpen() {
+            if (this.$route.params.emailId === this.email.id){
+                this.isActive = true;
+            }
+            else this.isActive = false;
+        }
+    },
+    created() {
+    },
+    mounted() {
+        this.checkIfOpen();
+    },
+    watch: {
+        '$route.params.emailId': function (newEmailId) {
+           this.checkIfOpen()
+        }
+    }
 }

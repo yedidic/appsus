@@ -8,6 +8,7 @@ export default {
     name: 'email-compose',
     template: `
     <section class="email-compose">
+    <router-link tag="button" to="/email/" class="back-btn">Back</router-link>
        <form class="flex column">
             <label>Subject<input type="text" v-model="email.subject" placeholder="Subject"/></label>
             <label>To<input type="email" v-model="email.to.address" placeholder="To"/></label>

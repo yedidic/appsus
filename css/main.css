@@ -1,6 +1,14 @@
 
 @import url("./notes-style/notes-app.css");
-@import url("./email/email-preview.css");
+
+/* Email-App */
+@import url("./email/email-app-cmp.css");
+@import url("./email/email-list-cmp.css");
+@import url("./email/email-preview-cmp.css");
+@import url("./email/email-filter-cmp.css");
+@import url("./email/email-details-cmp.css");
+/* !Email-App */
+
 * {
     box-sizing: border-box
 }
