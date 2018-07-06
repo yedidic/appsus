@@ -25,7 +25,7 @@ export default {
             email: {
                 subject: '',
                 from: { name: 'Me MaMi', address: 'me@me.com' },
-                sent: moment().format('lll'),
+                sent: moment().format(emailService.DATE_FORMAT),
                 to: { name: '', address: '' },
                 msg: '',
                 isRead: false
@@ -34,7 +34,7 @@ export default {
     },
     methods: {
         setNewEmail() {
-            this.email.sent = moment().format('lll');
+            this.email.sent = moment().format(emailService.DATE_FORMAT);
             emailService.setNewEmail(this.email)
                 .then(() =>
                     console.log('New Email Sent!'))

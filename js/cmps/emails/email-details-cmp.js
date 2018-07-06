@@ -7,7 +7,7 @@ import emailService from '../../services/email-service.js';
 export default {
     name: 'email-details',
     template: `
-    <section class="email-details flex column">
+    <section class="email-details flex column" v-if="!isEmailsEmpty">
     <router-link tag="button" to="/email" class="back-btn">Back to List</router-link>
        <h2>{{email.subject}}</h2>
        <h3>From: {{email.from.name}} <{{email.from.address}}></h3>
@@ -30,7 +30,8 @@ export default {
                 msg: '',
                 isRead: false
             },
-            mobileMode: false
+            // mobileMode: false,
+            isEmailsEmpty: false
         }
     },
     watch: {
@@ -52,7 +53,14 @@ export default {
                 return;
             }
             emailService.getById(this.$route.params.emailId)
-                .then(email => this.email = email)
+                .then((email, firstIdxEmail) => {
+                    if(email) this.email = email
+                    else console.log('firstIdxEmail', firstIdxEmail)
+                })
+                .catch((err) => {
+                    console.log('Err: ', err)
+                    this.loadFirstIdxEmail()
+                })
         },
         loadFirstIdxEmail() {
             emailService.query()

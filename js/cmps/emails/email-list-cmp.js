@@ -10,7 +10,7 @@ export default {
         <ul>
             <li v-for="(email, idx) in emails" :key="email.id">
                 <router-link :to="'/email/'+email.id" @click.native="makeUnread(email.id)">
-                <email-preview :email="email""></email-preview>
+                <email-preview :email="email" :idx="idx" @deleteEmail="deleteEmail"></email-preview>
                 </router-link>
             </li>
         </ul>
@@ -25,6 +25,10 @@ export default {
             emailService.changeEmailReadStatus(emailId)
                 .then(() => this.$emit('opened')
                 )
+        },
+        
+        deleteEmail(emailIdx) {
+            this.$emit('deleteEmail',emailIdx)
         }
     },
     components: {

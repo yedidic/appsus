@@ -14,16 +14,16 @@ export default {
     </header>
     <main class="flex">
             <div class="flex column email-list-container" 
-            :class="{'no-mobile': isEmailIdInUrl}">
+            :class="{'no-mobile': $route.params.emailId}">
                     <email-filter 
                     :emails="emails" 
                     @filter="setFilter"
                     ></email-filter>
-                    <email-list :emails="emailsToShow" class="flex column" @opened="loadEmails">
+                    <email-list :emails="emailsToShow" @deleteEmail="deleteEmail" class="flex column" @opened="loadEmails">
                     </email-list>
             </div>
 
-            <email-details :class="{'no-mobile': !isEmailIdInUrl}"></email-details>
+            <email-details :class="{'no-mobile': !$route.params.emailId}"></email-details>
     </main>
         <!-- <email-status></email-status> -->
     </section>
@@ -36,12 +36,19 @@ export default {
         setFilter(filtBy) {
             this.filterBy = filtBy;
         },
-        loadEmails(){
+        loadEmails() {
             emailService.query()
-           .then(emails => {
-               this.emails = emails
-           })
-       }
+                .then(emails => {
+                    this.emails = emails
+                })
+        },
+        deleteEmail(emailIdx) {
+            emailService.deleteEmail(emailIdx)
+                .then((emails) =>
+                    this.emails = emails
+                )
+            // Maybe swal here
+        },
     },
     data() {
         return {
@@ -50,7 +57,6 @@ export default {
                 txt: '',
                 ctg: 'all'
             },
-            isEmailIdInUrl: false
         }
     },
     created() {
@@ -80,9 +86,9 @@ export default {
         emailDetails
     },
     watch: {
-        '$route.params.emailId': function (newEmailId) {
-            if(!newEmailId) this.isEmailIdInUrl = false;
-            else this.isEmailIdInUrl = true;
-        }
+        // '$route.params.emailId': function (newEmailId) {
+        //     if(!newEmailId) this.isEmailIdInUrl = false;
+        //     else this.isEmailIdInUrl = true;
+        // }
     }
 }
