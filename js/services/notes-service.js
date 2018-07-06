@@ -31,6 +31,8 @@ function query() {
 }
 
 function getById(id) {
+    console.log(id);
+    
     return notes.find((note) => note.id === id);
 }
 
@@ -44,18 +46,25 @@ function saveNote(sentNote) {
         } else {
             notes.push(sentNote)
         }
-        console.log(notes);
+        console.log("notes:", notes);
         
         utilsService.saveToStorage(NOTES_KEY, notes)
         resolve(note)
     })
 }
 
+function deleteNote(id) {
+    let noteIdx = notes.findIndex((note) => note.id === id)
+    notes.splice(noteIdx, 1)
+    utilsService.saveToStorage(NOTES_KEY, notes);
+    return Promise.resolve(notes);
+}
+
 function getEmptyNote(type) {
     let emptyNote = {'type': type, id: utilsService.makeid(), bgc: 'AB8BA8',
-            data: {title:'', text: '', imgUrl:'', todos:[]}
+            data: {title:'', text: '', imgUrl:'', todos:[{txt:'', isDone: false}]}
    }
-   console.log(emptyNote);
+//    console.log(emptyNote);
    return emptyNote
 }
 
@@ -63,5 +72,6 @@ export default {
     query,
     getById,
     saveNote,
-    getEmptyNote
+    getEmptyNote,
+    deleteNote
 }

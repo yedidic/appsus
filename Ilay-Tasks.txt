@@ -1,0 +1,23 @@
+
+FULL CRUD:
+- add image note V 
+- add todo note V
+- delete note V
+- edit todo isDone
+- sync todo preview-editing 
+
+SEARCH
+
+PIN NOTE
+
+DESIGN
+- make all edit/add a modal
+
+EXTRA FEATURES:
+- add image from url option?
+
+BONUS:
+- audio note
+- map note
+- make email connection
+

@@ -13,7 +13,16 @@ export default {
             <i class="fas fa-pen-square" @click="$router.push('/notes/edit-add/text/')"></i>
             <i class="fas fa-list" @click="$router.push('/notes/edit-add/todo/')"></i>
         </div>
-        <component v-for="note in notes" :is="note.type" :data="note.data" :key="note.id" :style="{'background-color': note.bgc}" @click.native="editNote(note)"></component>
+        <template v-for="note in notes">
+            <component  
+                :is="note.type" 
+                :data="note.data" 
+                :key="note.id" 
+                :style="{'background-color': note.bgc}" 
+                @click.native="editNote(note)">
+            </component>
+            <button @click="deleteNote(note.id)">X</button>
+        </template>
     </section>
     `,
     data() {
@@ -35,6 +44,9 @@ export default {
         editNote(note) {
             let noteType = note.type.slice(0, -4);
             this.$router.push(`/notes/edit-add/${noteType}/${note.id}`);
+        },
+        deleteNote(id) {
+            notesService.deleteNote(id)
         }
     },
     components: {
