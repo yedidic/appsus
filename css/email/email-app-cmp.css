@@ -6,10 +6,16 @@
   /* align-items: center; */
   justify-content: center;
 }
-
+.email-details .back-btn{
+  display: none;
+}
 
 @media (max-width: 400px){
-  .email-app *.no-mobile {
+  .email-app main *.no-mobile {
     display: none;
+  }
+  .email-details .back-btn{
+    display: block;
+    /* change to relative and to float on the screen */
   }
 }

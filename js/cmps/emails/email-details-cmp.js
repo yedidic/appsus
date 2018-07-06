@@ -8,7 +8,7 @@ export default {
     name: 'email-details',
     template: `
     <section class="email-details flex column">
-    <router-link tag="button" to="/email">Back to List</router-link>
+    <router-link tag="button" to="/email" class="back-btn">Back to List</router-link>
        <h2>{{email.subject}}</h2>
        <h3>From: {{email.from.name}} <{{email.from.address}}></h3>
        <h4>Sent: {{email.sent}}</h4>
