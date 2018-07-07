@@ -14,7 +14,7 @@ function getTempEmails() {
             id: '1fg3sD',
             subject: 'Ani Adam mamash Tov',
             from: { name: 'Adam Anak Mamash', address: 'adam@anak.mamsh' },
-            sent: moment('2018-10-20').format(DATE_FORMAT),
+            sent: '2018-05-20',
             to: { name: 'Jacky Chan', address: 'jacky@mami.mamsh' },
             msg: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente num /n quam alias culpa neque nihil expedita vero quo similique id ipsam, maiores consequatur dolorem porro qui est quam quod? Et, vero.',
             isRead: false
@@ -23,7 +23,7 @@ function getTempEmails() {
             id: '2fg3sD',
             subject: 'Baba Mamash Ohev Mama',
             from: { name: 'Baba Avitan', address: 'baba@avitan.king' },
-            sent: moment('2013-02-20').format(DATE_FORMAT),
+            sent: '2013-02-20',
             to: { name: 'Mama Abukhaliph', address: 'mama@abukhaliph.net' },
             msg: 'Ba babababababab babababb  bababababab bababababab babababbab /n ababababab babababab babababababqa babbabababababababa abababababababababa',
             isRead: true
@@ -32,7 +32,7 @@ function getTempEmails() {
             id: '3fg3sD',
             subject: 'Ckhhhh Ckhhh Ckhhhh',
             from: { name: 'Chaim Moshe', address: 'chaim@moshe.com' },
-            sent: moment('2010-05-03').format(DATE_FORMAT),
+            sent: '2010-05-03',
             to: { name: 'Jacky Chan', address: 'jacky@mami.mamsh' },
             msg: 'cccccdcccccd cccccd cccccd cccccd cccccd cccccd /n cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccdccc',
             isRead: false
@@ -67,7 +67,6 @@ function changeEmailReadStatus(id, isRead = true) {
                 utilsService.saveToStorage(EMAILS_KEY, emails);
                 return resolve(email);
             })
-
     })
 
 }

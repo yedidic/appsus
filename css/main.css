@@ -7,6 +7,7 @@
 @import url("./email/email-preview-cmp.css");
 @import url("./email/email-filter-cmp.css");
 @import url("./email/email-details-cmp.css");
+@import url("./email/email-compose-cmp.css");
 /* !Email-App */
 
 * {
