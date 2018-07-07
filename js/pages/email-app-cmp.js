@@ -28,7 +28,6 @@ export default {
         <!-- <email-status></email-status> -->
     </section>
     `,
-    // TODO: maybe add the empty inbox feature here according to 'emails' condition
 
     methods: {
         goBack() {

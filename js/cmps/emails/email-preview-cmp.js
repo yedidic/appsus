@@ -16,7 +16,7 @@ export default {
                 <h4 class="email-subj">{{email.subject}}</h4>
                 <h4>{{email.from.name}}</h4>
             </div>
-            <h5>{{email.sent}}</h5>
+            <h5>{{getRelativeDate}}</h5>
     </section>
                 `,
 
@@ -42,9 +42,11 @@ export default {
         this.checkIfOpen();
     },
     computed: {
-        // isActive() {
-        //     return this.$route.params.emailId === this.email.id;
-        // }
+        getRelativeDate() {
+            // return this.email.sent;
+            // return 8
+            return moment(this.email.sent).from()
+        }
     },
     watch: {
         '$route.params.emailId': function (newEmailId) {

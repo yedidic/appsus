@@ -11,7 +11,9 @@ import editAddTodoCmp from './cmps/notes/edit-add-todo-cmp.js'
 
 export default [
     {path: '/', component: appsusPage},
-    {path: '/email/compose/:replyTo?', component: emailCompose},
+    {path: '/email/compose/reply/:replyTo/:subject', component: emailCompose},
+    {path: '/email/compose/forward/:emailId', component: emailCompose},
+    {path: '/email/compose/', component: emailCompose},
     {path: '/email/:emailId?', component: emailApp},
     {path: '/email', component: emailApp},
     {path: '/notes', component: notesApp, children: [

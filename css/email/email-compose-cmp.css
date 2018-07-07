@@ -1,0 +1,11 @@
+.email-compose .reply-address {
+  color:rgb(250, 233, 233);
+  background: rgb(170, 159, 231);
+}
+.email-compose .reply-address:focus{
+  color:  black;
+  background: inherit;
+}
+.email-compose textarea{
+  max-width: 100%;
+}

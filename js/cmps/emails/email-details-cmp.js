@@ -10,11 +10,14 @@ export default {
     template: `
     <section class="email-details flex column">
     <template v-if="email">
-        <router-link tag="button" to="/email" class="back-btn">Back to List</router-link>
-        <router-link tag="button" to="/email" class="far fa-trash-alt" @click.native="deleteEmail"></router-link>
+        <router-link tag="button" to="/email" class="fas fa-inbox back-btn" >Back to Inbox</router-link>
+        <router-link tag="button" to="/email" class="fas fa-trash-alt" @click.native="deleteEmail">Delete</router-link>
+        <router-link tag="button" :to="'/email/compose/reply/'+email.from.address+'/'+email.subject" class="fas fa-reply">Reply</router-link>
+        <router-link tag="button" :to="'/email/compose/forward/'+email.id" class="fas fa-arrow-left">Forward</router-link>
+        <router-link tag="button" to="/email/" class="fas fa-envelope" @click.native="makeUnread" >Make Unread</router-link>
         <h2>{{email.subject}}</h2>
         <h3>From: {{email.from.name}} <{{email.from.address}}></h3>
-        <h4>Sent: {{email.sent}}</h4>
+        <h4>Sent: {{getFormattedDate}}</h4>
         <h3>To: {{email.to.name}} <{{email.to.address}}> </h3>
         <div class="pre-wrapper">
                 <pre>{{email.msg}}</pre>
@@ -42,7 +45,7 @@ export default {
         '$route.params.emailId': function (newEmailId) {
             this.loadEmail();
         },
-        emails(){
+        emails() {
             this.loadEmail();
         }
     },
@@ -73,6 +76,14 @@ export default {
         },
         deleteEmail() {
             this.$emit('deleteEmail', this.email.id)
+        },
+        makeUnread() {
+            emailService.changeEmailReadStatus(this.email.id, false);
+        },
+    },
+    computed: {
+        getFormattedDate() {
+            return moment(this.email.sent).format(emailService.DATE_FORMAT)
         }
     }
 }
