@@ -3,22 +3,55 @@
     margin: 10px;
 }
 
-.serach-input {
-    display: block;
+.add-note-btns {
+    /* height: 5em; */
+    display: flex;
+    align-items: center;
+    display: inline-block;
+}
+.add-note-btns i {
+    cursor: pointer;
+    margin: 5px 20px;
+    transition: 0.3s;
+}
+.add-note-btns i:hover {
+    transform: scale(1.1)
+}
+
+.search-bar-container {
+    margin: 1em 0;
+    display: inline-block;
+}
+
+.search-input {
+    display: inline-block;
+    padding: 0.5em;
+    position: relative;
+    bottom: 0.5em;
+}
+
+.notes-container {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    /* height: 3vh; */
 }
 
 .note-container {
     display: inline-block;
+    /* flex: 1; */
+    /* max-width: 10em; */
     /* position: relative; */
 }
 
 .note {
     cursor: pointer;
     display: inline-block;
+    width: auto;
     border: 1px solid gray;
     border-radius: 5px;
-    margin: 1em;
     padding: 1em;
+    margin: 1em;
     transition: 0.3s
 }
 
@@ -40,15 +73,18 @@
 }
 
 .delete-note-btn {
+    z-index: 1;
     position: relative;
-    right: 40px;
-    top: 25px;
+    right: 35px;
+    top: 20px;
 }
 
 .pin-note-btn {
+    z-index: 1;
+    display: block;
     position: relative;
-    left: 30px;
-    top: 25px;
+    left: 5px;
+    top: 30px;
     cursor: pointer;
 }
 
@@ -56,6 +92,3 @@
     background-color: #cccccc;
 }
 
-.add-note-btns i {
-    cursor: pointer;
-}

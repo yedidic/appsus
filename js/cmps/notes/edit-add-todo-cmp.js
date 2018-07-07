@@ -30,7 +30,8 @@ export default {
     </transition>
     `,
     created() {
-        this.note = notesService.getById(this.$route.params.noteId);
+        let originalNote = notesService.getById(this.$route.params.noteId);
+        this.note = JSON.parse(JSON.stringify(originalNote))
         console.log(this.note);
         if (!this.note) {
             this.note = notesService.getEmptyNote('todoNote')
@@ -61,7 +62,7 @@ export default {
         },
         saveNote() {
             notesService.saveNote(this.note)
-                .then(() => {
+                .then(() => {   
                     this.$router.push('/notes');
                 })
         },

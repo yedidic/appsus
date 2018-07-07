@@ -7,30 +7,36 @@ export default {
     template: `
     <section class="notes-app">
         <button @click="goBack">Back to Appsus</button>
-        <h1>Notes:</h1>
-        <div class="add-note-btns">
-            <i class="fas fa-image" @click="$router.push('/notes/edit-add/text/image')"></i>
-            <i class="fas fa-pen-square" @click="$router.push('/notes/edit-add/text/')"></i>
-            <i class="fas fa-list" @click="$router.push('/notes/edit-add/todo/')"></i>
-        </div>
-        <input type="search" class="serach-input" v-model="filterBy">
-        <template v-for="note in notes">
-        <div class="note-container">
-            <button :class="['btn' ,'pin-note-btn', {'pin-btn-pinned':note.isPinned}]" 
+        <header>
+            <h1>Notes:</h1>
+            <div class="add-note-btns">
+                <i class="fas fa-image fa-2x" @click="$router.push('/notes/edit-add/text/image')"></i>
+                <i class="fas fa-pen-square fa-2x" @click="$router.push('/notes/edit-add/text/')"></i>
+                <i class="fas fa-list fa-2x" @click="$router.push('/notes/edit-add/todo/')"></i>
+            </div>
+            <div class="search-bar-container">
+                Search: <input type="search" class="search-input" v-model="filterBy">
+            </div>
+        </header>
+        <section class="notes-container">
+            <template v-for="note in notes">
+                <div class="note-container">
+                    <button :class="['btn' ,'pin-note-btn', {'pin-btn-pinned':note.isPinned}]" 
                     @click.stop="pinNote(note)">
-                <i class="fas fa-thumbtack"></i>
-            </button>
-            <component  
-                :is="note.type" 
-                :data="note.data" 
-                :key="note.id" 
-                :style="{'background-color': note.bgc}" 
-                @click.native="editNote(note)">
-            </component>
-            <button class="btn delete-note-btn" @click="deleteNote(note.id)">X</button>
-        </div>
-        </template>
-        <router-view></router-view>
+                    <i class="fas fa-thumbtack"></i>
+                    </button>
+                    <component  
+                    :is="note.type" 
+                    :data="note.data" 
+                    :key="note.id" 
+                    :style="{'background-color': note.bgc}" 
+                    @click.native="editNote(note)">
+                    </component>
+                    <button class="btn delete-note-btn" @click="deleteNote(note.id)">X</button>
+                </div>
+            </template>
+        </section>
+    <router-view></router-view>
     </section>
     `,
     data() {

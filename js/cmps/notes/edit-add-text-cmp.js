@@ -41,7 +41,8 @@ export default {
     `,
     created() {
         let paramsId = this.$route.params.noteId;
-        this.note = notesService.getById(paramsId);
+        let originalNote = notesService.getById(paramsId);
+        this.note = JSON.parse(JSON.stringify(originalNote))
         if (!this.note) {
             if (paramsId === 'image') {
                 this.imageInputShown = true;

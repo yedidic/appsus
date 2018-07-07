@@ -14,7 +14,7 @@ DESIGN
 - make all edit/add a modal V
 
 EXTRA FEATURES:
-- fix sync between edit and data (make async!)
+- fix sync between edit and data (make async!) V
 - add image from url option?
 - improve pin behaviour (service save idx of last pinned, ans func add to there with splice?) 
 
