@@ -3,7 +3,8 @@
 export default {
     saveToStorage,
     loadFromStorage,
-    makeid
+    makeid,
+    getWindowWidth
 }
 
 function saveToStorage(key, value) {
@@ -22,4 +23,9 @@ function makeid(length=8) {
       text += possible.charAt(Math.floor(Math.random() * possible.length));
   
     return text;
+}
+
+function getWindowWidth() {
+    return window.innerWidth
+    // return window.clientWidth
 }

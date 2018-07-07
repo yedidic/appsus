@@ -23,6 +23,19 @@ function getFakeNotes() {
                                                                ]
                 }
         },
+        {type: 'textNote', id: utilsService.makeid(), bgc: '1AAB1A', isPinned: false,
+         data: {title:'Dream 05/07/18', text: 'I dreamt I finished sprint 3 and then a monster with 3 heads ate me', todos:[]}
+        },
+        {type: 'textNote', id: utilsService.makeid(), bgc: 'AB8BA8', isPinned: false,
+         data: {title:'A beautiful bird',text:'', imgUrl: '/img/notes/beautiful-bird.jpg', todos:[]}
+        },
+        {type: 'todoNote', id: utilsService.makeid(), bgc: 'AB8BA8', isPinned: false,
+         data: {title: 'Finish before 26/07/18', text:'',todos:[ {txt:'Mastering Vue.JS', isDone: false}, 
+                                                                 {txt:'Feeding Muki', isDone: false},
+                                                                 {txt:'Finishing sprint 3', isDone: true},
+                                                               ]
+                }
+        },
     ]
 }
 
@@ -45,19 +58,15 @@ function getById(id) {
 }
 
 function saveNote(sentNote) {
-    console.log(sentNote);
-    
-    let note = getById(sentNote.id)
+    let noteIdx = notes.findIndex((note) => note.id === sentNote.id)
     return new Promise((resolve) => {
-        if (note) {
-            note = sentNote;
+        if (noteIdx !== -1) {
+            notes[noteIdx] = sentNote;
         } else {
             notes.push(sentNote)
         }
-        console.log("notes:", notes);
-        
         utilsService.saveToStorage(NOTES_KEY, notes)
-        resolve(note)
+        resolve(notes)
     })
 }
 
