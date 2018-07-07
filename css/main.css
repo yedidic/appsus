@@ -97,5 +97,6 @@ ul {
 
 .appsus-link-hover {
   transform: scale(1.1);
+  transform: rotateZ(-6deg);
   color: rgb(50, 56, 63);
 }
