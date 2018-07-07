@@ -62,7 +62,7 @@ function changeEmailReadStatus(id, isRead = true) {
     return new Promise((resolve, reject) => {
         getById(id)
             .then((email) => {
-                if(!email) return;
+                if (!email) return;
                 email.isRead = isRead;
                 utilsService.saveToStorage(EMAILS_KEY, emails);
                 return resolve(email);
@@ -80,7 +80,16 @@ function setNewEmail(email) {
         resolve();
     })
 }
-function deleteEmail(idx) {
+// function deleteEmail(idx) {
+//     return new Promise((resolve, reject) => {
+//         // emails = utilsService.loadFromStorage(EMAILS_KEY);
+//         emails.splice(idx, 1);
+//         utilsService.saveToStorage(EMAILS_KEY, emails);
+//         resolve(emails);
+//     })
+// }
+function deleteEmail(emailId) {
+    let idx= emails.findIndex(email => email.id === emailId)
     return new Promise((resolve, reject) => {
         // emails = utilsService.loadFromStorage(EMAILS_KEY);
         emails.splice(idx, 1);

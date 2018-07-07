@@ -6,6 +6,7 @@ import emailService from '../../services/email-service.js';
 
 export default {
     name: 'email-compose',
+    // props: ['replyDet'],
     template: `
     <section class="email-compose">
     <router-link tag="button" to="/email/" class="back-btn">Back</router-link>
@@ -39,7 +40,12 @@ export default {
                 .then(() =>
                     console.log('New Email Sent!'))
         }
-    }
+    },
+    created() {
+        // this.email.to.name = this.replyDet.name;
+        if (this.$route.params.replyTo) this.email.to.address = this.$route.params.replyTo;
+
+    },
 
 
 }

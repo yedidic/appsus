@@ -6,7 +6,7 @@
 
 export default {
     name: 'email-preview',
-    props: ['email', 'idx'],
+    props: ['email'],
     template: `
     <section class="email-preview flex center-items" :class="{active: isActive}">
             <i class="fas fa-envelope-open" v-if="email.isRead"></i>
@@ -33,7 +33,7 @@ export default {
             else this.isActive = false;
         },
         deleteEmail() {
-            this.$emit('deleteEmail', this.idx)
+            this.$emit('deleteEmail', this.email.id)
         }
     },
     created() {

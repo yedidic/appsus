@@ -8,9 +8,9 @@ export default {
     template: `
     <section class="email-list">
         <ul>
-            <li v-for="(email, idx) in emails" :key="email.id">
+            <li v-for="email in emails" :key="email.id">
                 <router-link :to="'/email/'+email.id" @click.native="makeUnread(email.id)">
-                <email-preview :email="email" :idx="idx" @deleteEmail="deleteEmail"></email-preview>
+                <email-preview :email="email" @deleteEmail="deleteEmail"></email-preview>
                 </router-link>
             </li>
         </ul>
@@ -27,8 +27,8 @@ export default {
                 )
         },
         
-        deleteEmail(emailIdx) {
-            this.$emit('deleteEmail',emailIdx)
+        deleteEmail(emailId) {
+            this.$emit('deleteEmail',emailId)
         }
     },
     components: {

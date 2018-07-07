@@ -6,10 +6,12 @@ import emailService from '../../services/email-service.js';
 
 export default {
     name: 'email-details',
+    props: ['emails'],
     template: `
     <section class="email-details flex column">
     <template v-if="email">
         <router-link tag="button" to="/email" class="back-btn">Back to List</router-link>
+        <router-link tag="button" to="/email" class="far fa-trash-alt" @click.native="deleteEmail"></router-link>
         <h2>{{email.subject}}</h2>
         <h3>From: {{email.from.name}} <{{email.from.address}}></h3>
         <h4>Sent: {{email.sent}}</h4>
@@ -39,6 +41,9 @@ export default {
     watch: {
         '$route.params.emailId': function (newEmailId) {
             this.loadEmail();
+        },
+        emails(){
+            this.loadEmail();
         }
     },
     created() {
@@ -52,6 +57,8 @@ export default {
                 this.loadFirstIdxEmail()
                 return;
             }
+            //TODO: optional: make them at same promise 
+            // or maybe in reject(firstIdxMail); (firstIdx && my email)
             emailService.getById(this.$route.params.emailId)
                 .then((email, firstIdxEmail) => {
                     if (email) this.email = email
@@ -63,6 +70,9 @@ export default {
                 .then(emails => {
                     this.email = emails[0]
                 })
+        },
+        deleteEmail() {
+            this.$emit('deleteEmail', this.email.id)
         }
     }
 }
