@@ -11,7 +11,7 @@ export default {
     <section class="email-preview flex center-items" :class="{active: isActive}">
             <i class="fas fa-envelope-open" v-if="email.isRead"></i>
             <i class="fas fa-envelope" v-else></i>
-            <button class="far fa-trash-alt" @click="deleteEmail"></button>
+            <router-link tag="button" to="/email" class="far fa-trash-alt" @click.native="deleteEmail"></router-link>
             <div class="flex column">
                 <h4 class="email-subj">{{email.subject}}</h4>
                 <h4>{{email.from.name}}</h4>
