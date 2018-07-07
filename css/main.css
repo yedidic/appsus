@@ -91,4 +91,10 @@ ul {
 
 .appsus-links-container * {
   cursor: pointer;
+  transition: 0.3s
+}
+
+.appsus-link-hover {
+  transform: scale(1.1);
+  color: rgb(50, 56, 63);
 }

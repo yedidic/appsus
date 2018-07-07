@@ -31,9 +31,9 @@ export default {
     `,
     created() {
         let originalNote = notesService.getById(this.$route.params.noteId);
-        this.note = JSON.parse(JSON.stringify(originalNote))
-        console.log(this.note);
-        if (!this.note) {
+        if (originalNote) {
+            this.note = JSON.parse(JSON.stringify(originalNote))
+        } else {
             this.note = notesService.getEmptyNote('todoNote')
         }
     },
