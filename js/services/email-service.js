@@ -62,7 +62,7 @@ function changeEmailReadStatus(id, isRead = true) {
             .then((email) => {
                 email.isRead = isRead;
                 utilsService.saveToStorage(EMAILS_KEY, emails);
-                resolve(email);
+                return resolve(email);
             })
 
     })

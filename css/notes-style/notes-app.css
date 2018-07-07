@@ -3,6 +3,11 @@
     margin: 10px;
 }
 
+.note-container {
+    display: inline-block;
+    /* position: relative; */
+}
+
 .note {
     cursor: pointer;
     display: inline-block;
@@ -30,6 +35,23 @@
     text-decoration: line-through;
 }
 
+.delete-note-btn {
+    position: relative;
+    right: 40px;
+    top: 25px;
+}
+
+.pin-note-btn {
+    position: relative;
+    left: 30px;
+    top: 25px;
+    cursor: pointer;
+}
+
+.pin-note-btn:not(.pin-btn-pinned) {
+    background-color: #cccccc;
+}
+
 .add-note-btns i {
     cursor: pointer;
 }
@@ -52,4 +74,8 @@
     resize: none;
     width: 300px;
     height: 100px;
+}
+
+input.todo-done {
+    text-decoration: line-through;
 }

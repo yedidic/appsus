@@ -10,13 +10,13 @@ if (!notes) {
 
 function getFakeNotes() {
     return [
-        {type: 'textNote', id: utilsService.makeid(), bgc: '1AAB1A',
+        {type: 'textNote', id: utilsService.makeid(), bgc: '1AAB1A', isPinned: false,
          data: {title:'Dream 05/07/18', text: 'I dreamt I finished sprint 3 and then a monster with 3 heads ate me'}
         },
-        {type: 'textNote', id: utilsService.makeid(), bgc: 'AB8BA8',
+        {type: 'textNote', id: utilsService.makeid(), bgc: 'AB8BA8', isPinned: false,
          data: {title:'A beautiful bird', imgUrl: '/img/notes/beautiful-bird.jpg'}
         },
-        {type: 'todoNote', id: utilsService.makeid(), bgc: 'AB8BA8',
+        {type: 'todoNote', id: utilsService.makeid(), bgc: 'AB8BA8', isPinned: false,
          data: {title: 'Finish before 26/07/18' ,todos:[ {txt:'Mastering Vue.JS', isDone: false}, 
                                                          {txt:'Feeding Muki', isDone: false},
                                                          {txt:'Finishing sprint 3', isDone: true},
@@ -60,8 +60,22 @@ function deleteNote(id) {
     return Promise.resolve(notes);
 }
 
+function handlePinNote(note) {
+    note.isPinned = !note.isPinned;
+    let noteIdx = notes.findIndex(currNote => currNote.id === note.id);
+    notes.splice(noteIdx, 1)
+    if (note.isPinned) notes.unshift(note);
+    else notes.push(note)
+    utilsService.saveToStorage(NOTES_KEY, notes)
+}
+
+function toggleTodoIsDone(todo) {
+    todo.isDone = !todo.isDone
+    utilsService.saveToStorage(NOTES_KEY, notes);
+}
+
 function getEmptyNote(type) {
-    let emptyNote = {'type': type, id: utilsService.makeid(), bgc: 'AB8BA8',
+    let emptyNote = {'type': type, id: utilsService.makeid(), bgc: 'AB8BA8', isPinned: false,
             data: {title:'', text: '', imgUrl:'', todos:[{txt:'', isDone: false}]}
    }
 //    console.log(emptyNote);
@@ -73,5 +87,7 @@ export default {
     getById,
     saveNote,
     getEmptyNote,
-    deleteNote
+    deleteNote,
+    handlePinNote,
+    toggleTodoIsDone
 }

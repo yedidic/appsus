@@ -14,6 +14,11 @@ export default {
             <i class="fas fa-list" @click="$router.push('/notes/edit-add/todo/')"></i>
         </div>
         <template v-for="note in notes">
+        <div class="note-container">
+            <button :class="['btn' ,'pin-note-btn', {'pin-btn-pinned':note.isPinned}]" 
+                    @click.stop="pinNote(note)">
+                <i class="fas fa-thumbtack"></i>
+            </button>
             <component  
                 :is="note.type" 
                 :data="note.data" 
@@ -21,7 +26,8 @@ export default {
                 :style="{'background-color': note.bgc}" 
                 @click.native="editNote(note)">
             </component>
-            <button @click="deleteNote(note.id)">X</button>
+            <button class="btn delete-note-btn" @click="deleteNote(note.id)">X</button>
+        </div>
         </template>
     </section>
     `,
@@ -47,6 +53,9 @@ export default {
         },
         deleteNote(id) {
             notesService.deleteNote(id)
+        },
+        pinNote(note) {
+            notesService.handlePinNote(note)
         }
     },
     components: {

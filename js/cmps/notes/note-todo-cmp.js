@@ -1,3 +1,4 @@
+import notesService from '../../services/notes-service.js'
 
 export default {
     props: ['data'],
@@ -5,7 +6,7 @@ export default {
     <section class='note todo-note'>
         <h4>{{data.title}}</h4>
         <ul>
-            <li v-for="todo in data.todos" @click.stop="todoClicked(todo)" :class="{'todo-done': todo.isDone}">
+            <li v-for="todo in data.todos" @click.stop="toggleTodoIsDone(todo)" :class="{'todo-done': todo.isDone}">
                 <i v-if="todo.isDone" class="far fa-check-square"></i>
                 <i v-else class="far fa-square"></i>
                 {{todo.txt}}
@@ -23,9 +24,8 @@ export default {
         
     },
     methods: {
-        todoClicked(todo) {
-            todo.isDone = !todo.isDone
-            // console.log(todo);
+        toggleTodoIsDone(todo) {
+            notesService.toggleTodoIsDone(todo)
         }
     }
 }
