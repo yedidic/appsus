@@ -21,6 +21,21 @@
     align-items: flex-start;
 }
 
+.fade-enter-active, .fade-leave-active {
+    transition: .5s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+.slide-enter-active, .slide-leave-active {
+    transition: .5s;
+}
+.slide-enter, .slide-leave-to {
+    transform: translate(-200px);
+}
+
+
+
 .edit-add-input {
     display: flex;
     flex-direction: column;
@@ -39,6 +54,10 @@
     resize: none;
     width: 300px;
     height: 100px;
+}
+
+.edit-add-input img {
+    width: 300px;
 }
 
 input.todo-done {

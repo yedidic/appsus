@@ -11,9 +11,10 @@ SEARCH V
 PIN NOTE V
 
 DESIGN
-- make all edit/add a modal
+- make all edit/add a modal V
 
 EXTRA FEATURES:
+- fix sync between edit and data (make async!)
 - add image from url option?
 - improve pin behaviour (service save idx of last pinned, ans func add to there with splice?) 
 

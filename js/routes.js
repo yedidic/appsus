@@ -14,7 +14,10 @@ export default [
     {path: '/email/compose', component: emailCompose},
     {path: '/email/:emailId?', component: emailApp},
     {path: '/email', component: emailApp},
-    {path: '/notes', component: notesApp},
-    {path: '/notes/edit-add/text/:noteId?', component: editAddTxtCmp},
-    {path: '/notes/edit-add/todo/:noteId?', component: editAddTodoCmp},
+    {path: '/notes', component: notesApp, children: [
+        { path: 'edit-add/text/:noteId?', component: editAddTxtCmp, name: 'editAddTxtCmp' },
+        { path: 'edit-add/todo/:noteId?', component: editAddTodoCmp, name: 'editAddTodoCmp' },
+      ]},
+    // {path: '/notes/edit-add/text/:noteId?', component: editAddTxtCmp},
+    // {path: '/notes/edit-add/todo/:noteId?', component: editAddTodoCmp},
 ]

@@ -3,27 +3,31 @@ import notesService from '../../services/notes-service.js'
 
 export default {
     template: `
-    <section class='edit-add-todo'>
-        <button @click="goBack">Back to notes</button>
-        <div class="edit-add-input">
-            <input v-model="note.data.title"></input>
-            <div class="flex" v-for="(todo, todoIdx) in note.data.todos">
-                <button @click="deleteTodo(todoIdx)">X</button>
-                <input type="text" v-model="todo.txt" :class="{'todo-done': todo.isDone}"/>
-                <i v-if="todo.isDone" class="far fa-check-square" @click="toggleTodoIsDone(todo)"></i>
-                <i v-else class="far fa-square" @click="toggleTodoIsDone(todo)"></i>
-            </div>
-            <button @click="addTodo">
-                <i class="fas fa-plus"></i>
-            </button>
-        </div>
-        <input type="color" value="AB8BA8" v-model="note.bgc">
-        <button @click="saveNote">Save</button>
+    <transition name="fade">
+        <div class="modal-backdrop" @click.self="goBack">
+            <section class='edit-add-todo modal'>
+                <button @click="goBack">Back to notes</button>
+                <div class="edit-add-input">
+                    <input v-model="note.data.title"></input>
+                    <div class="flex" v-for="(todo, todoIdx) in note.data.todos">
+                        <button @click="deleteTodo(todoIdx)">X</button>
+                        <input type="text" v-model="todo.txt" :class="{'todo-done': todo.isDone}"/>
+                        <i v-if="todo.isDone" class="far fa-check-square" @click="toggleTodoIsDone(todo)"></i>
+                        <i v-else class="far fa-square" @click="toggleTodoIsDone(todo)"></i>
+                    </div>
+                    <button @click="addTodo">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <input type="color" value="AB8BA8" v-model="note.bgc">
+                <button @click="saveNote">Save</button>
 
-        <pre>
-            {{note}}
-        </pre>
-    </section>
+                <!-- <pre>
+                    {{note}}
+                </pre> -->
+            </section>
+        </div>
+    </transition>
     `,
     created() {
         this.note = notesService.getById(this.$route.params.noteId);

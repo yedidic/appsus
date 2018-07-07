@@ -9,7 +9,7 @@ export default {
         <button @click="goBack">Back to Appsus</button>
         <h1>Notes:</h1>
         <div class="add-note-btns">
-            <i class="fas fa-image" @click="$router.push('/notes/edit-add/text/')"></i>
+            <i class="fas fa-image" @click="$router.push('/notes/edit-add/text/image')"></i>
             <i class="fas fa-pen-square" @click="$router.push('/notes/edit-add/text/')"></i>
             <i class="fas fa-list" @click="$router.push('/notes/edit-add/todo/')"></i>
         </div>
@@ -30,6 +30,7 @@ export default {
             <button class="btn delete-note-btn" @click="deleteNote(note.id)">X</button>
         </div>
         </template>
+        <router-view></router-view>
     </section>
     `,
     data() {
