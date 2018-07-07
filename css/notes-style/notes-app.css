@@ -3,6 +3,15 @@
     margin: 10px;
 }
 
+.serach-input {
+    display: block;
+}
+
+.note-container {
+    display: inline-block;
+    /* position: relative; */
+}
+
 .note {
     cursor: pointer;
     display: inline-block;
@@ -30,26 +39,23 @@
     text-decoration: line-through;
 }
 
-.add-note-btns i {
+.delete-note-btn {
+    position: relative;
+    right: 40px;
+    top: 25px;
+}
+
+.pin-note-btn {
+    position: relative;
+    left: 30px;
+    top: 25px;
     cursor: pointer;
 }
 
-.edit-add-input {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.pin-note-btn:not(.pin-btn-pinned) {
+    background-color: #cccccc;
 }
 
-.edit-add-input * {
-    margin-top:5px;
-}
-
-.edit-add-input input {
-    width: 300px;
-}
-
-.edit-add-input textarea{
-    resize: none;
-    width: 300px;
-    height: 100px;
+.add-note-btns i {
+    cursor: pointer;
 }

@@ -3,17 +3,23 @@ import textNote from '../cmps/notes/note-text-cmp.js'
 import todoNote from '../cmps/notes/note-todo-cmp.js'
 
 export default {
-    name: 'email',
+    name: 'notes-app',
     template: `
     <section class="notes-app">
         <button @click="goBack">Back to Appsus</button>
         <h1>Notes:</h1>
         <div class="add-note-btns">
-            <i class="fas fa-image" ></i>
+            <i class="fas fa-image" @click="$router.push('/notes/edit-add/text/image')"></i>
             <i class="fas fa-pen-square" @click="$router.push('/notes/edit-add/text/')"></i>
             <i class="fas fa-list" @click="$router.push('/notes/edit-add/todo/')"></i>
         </div>
+        <input type="search" class="serach-input" v-model="filterBy">
         <template v-for="note in notes">
+        <div class="note-container">
+            <button :class="['btn' ,'pin-note-btn', {'pin-btn-pinned':note.isPinned}]" 
+                    @click.stop="pinNote(note)">
+                <i class="fas fa-thumbtack"></i>
+            </button>
             <component  
                 :is="note.type" 
                 :data="note.data" 
@@ -21,13 +27,16 @@ export default {
                 :style="{'background-color': note.bgc}" 
                 @click.native="editNote(note)">
             </component>
-            <button @click="deleteNote(note.id)">X</button>
+            <button class="btn delete-note-btn" @click="deleteNote(note.id)">X</button>
+        </div>
         </template>
+        <router-view></router-view>
     </section>
     `,
     data() {
         return {
-            notes: []
+            notes: [],
+            filterBy: ''
         }
     },
     created() {
@@ -47,6 +56,17 @@ export default {
         },
         deleteNote(id) {
             notesService.deleteNote(id)
+        },
+        pinNote(note) {
+            notesService.handlePinNote(note)
+        }
+    },
+    watch: {
+        filterBy: function() {
+            notesService.getNotesForDisplay(this.filterBy)
+            .then((data) => {
+                this.notes = data;
+            })
         }
     },
     components: {
