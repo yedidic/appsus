@@ -3,6 +3,10 @@
     margin: 10px;
 }
 
+.serach-input {
+    display: block;
+}
+
 .note-container {
     display: inline-block;
     /* position: relative; */
@@ -54,28 +58,4 @@
 
 .add-note-btns i {
     cursor: pointer;
-}
-
-.edit-add-input {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.edit-add-input * {
-    margin-top:5px;
-}
-
-.edit-add-input input {
-    width: 300px;
-}
-
-.edit-add-input textarea{
-    resize: none;
-    width: 300px;
-    height: 100px;
-}
-
-input.todo-done {
-    text-decoration: line-through;
 }

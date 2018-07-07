@@ -11,16 +11,17 @@ if (!notes) {
 function getFakeNotes() {
     return [
         {type: 'textNote', id: utilsService.makeid(), bgc: '1AAB1A', isPinned: false,
-         data: {title:'Dream 05/07/18', text: 'I dreamt I finished sprint 3 and then a monster with 3 heads ate me'}
+         data: {title:'Dream 05/07/18', text: 'I dreamt I finished sprint 3 and then a monster with 3 heads ate me', todos:[]}
         },
         {type: 'textNote', id: utilsService.makeid(), bgc: 'AB8BA8', isPinned: false,
-         data: {title:'A beautiful bird', imgUrl: '/img/notes/beautiful-bird.jpg'}
+         data: {title:'A beautiful bird',text:'', imgUrl: '/img/notes/beautiful-bird.jpg', todos:[]}
         },
         {type: 'todoNote', id: utilsService.makeid(), bgc: 'AB8BA8', isPinned: false,
-         data: {title: 'Finish before 26/07/18' ,todos:[ {txt:'Mastering Vue.JS', isDone: false}, 
-                                                         {txt:'Feeding Muki', isDone: false},
-                                                         {txt:'Finishing sprint 3', isDone: true},
-                                                       ]}
+         data: {title: 'Finish before 26/07/18', text:'',todos:[ {txt:'Mastering Vue.JS', isDone: false}, 
+                                                                 {txt:'Feeding Muki', isDone: false},
+                                                                 {txt:'Finishing sprint 3', isDone: true},
+                                                               ]
+                }
         },
     ]
 }
@@ -30,9 +31,16 @@ function query() {
     return Promise.resolve(notes);
 }
 
+function getNotesForDisplay(filterBy) {
+    let filteredNotes = notes.filter(note => {
+        return note.data.title.includes(filterBy) ||
+                note.data.text.includes(filterBy) ||
+                note.data.todos.some(todo => todo.txt.includes(filterBy))
+    })
+    return Promise.resolve(filteredNotes);
+}
+
 function getById(id) {
-    console.log(id);
-    
     return notes.find((note) => note.id === id);
 }
 
@@ -84,6 +92,7 @@ function getEmptyNote(type) {
 
 export default {
     query,
+    getNotesForDisplay,
     getById,
     saveNote,
     getEmptyNote,

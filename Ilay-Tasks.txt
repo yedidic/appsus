@@ -6,7 +6,7 @@ FULL CRUD:
 - edit todo isDone V
 - sync todo preview-editing V
 
-SEARCH
+SEARCH V
 
 PIN NOTE V
 
