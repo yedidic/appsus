@@ -23,11 +23,12 @@ export default {
                     </email-list>
             </div>
 
-            <email-details :class="{'no-mobile': !$route.params.emailId}"></email-details>
+            <email-details :emails="emails" @deleteEmail="deleteEmail" :class="{'no-mobile': !$route.params.emailId}"></email-details>            
     </main>
         <!-- <email-status></email-status> -->
     </section>
     `,
+    // TODO: maybe add the empty inbox feature here according to 'emails' condition
 
     methods: {
         goBack() {
@@ -42,8 +43,15 @@ export default {
                     this.emails = emails
                 })
         },
-        deleteEmail(emailIdx) {
-            emailService.deleteEmail(emailIdx)
+        // deleteEmail(emailIdx) {
+        //     emailService.deleteEmail(emailIdx)
+        //         .then((emails) =>
+        //             this.emails = emails
+        //         )
+        //     // Maybe swal here
+        // },
+        deleteEmail(emailId) {
+            emailService.deleteEmail(emailId)
                 .then((emails) =>
                     this.emails = emails
                 )
