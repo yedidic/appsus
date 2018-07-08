@@ -2,6 +2,7 @@ import notesService from '../../services/notes-service.js'
 // import eventBus, { SAVE_NOTE } from '../../services/event-bus.service.js'
 
 export default {
+    name: 'edit-add-text',
     template: `
     <transition name="fade">
         <div class="modal-backdrop" @click.self="goBack">
@@ -42,8 +43,9 @@ export default {
     created() {
         let paramsId = this.$route.params.noteId;
         let originalNote = notesService.getById(paramsId);
-        this.note = JSON.parse(JSON.stringify(originalNote))
-        if (!this.note) {
+        if (originalNote) {
+            this.note = JSON.parse(JSON.stringify(originalNote))
+        } else {
             if (paramsId === 'image') {
                 this.imageInputShown = true;
             }

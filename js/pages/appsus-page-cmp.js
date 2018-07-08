@@ -8,8 +8,8 @@ export default {
         <img v-if="mouseOnRight" src="/img/sus-right-emails.png"/>
         <img v-else src="/img/sus-left-notes.png"/>
         <div class="appsus-links-container">
-            <router-link to="/notes">Notes</router-link> |
-            <router-link to="/email">Email</router-link>
+            <router-link :class="{'appsus-link-hover': !mouseOnRight}" to="/notes">Notes</router-link> |
+            <router-link :class="{'appsus-link-hover': mouseOnRight}" to="/email">Email</router-link>
         </div>
     </section>
     `,

@@ -98,8 +98,18 @@ ul {
 
 .appsus-links-container * {
   cursor: pointer;
+  transition: 0.3s
 }
+<<<<<<< HEAD
 .btn {
   cursor: pointer;
   font-family: inherit;
 }
+=======
+
+.appsus-link-hover {
+  transform: scale(1.1);
+  transform: rotateZ(-6deg);
+  color: rgb(50, 56, 63);
+}
+>>>>>>> cb8ec155e8f4aac48fdee1f3feb5a504e1feae0e

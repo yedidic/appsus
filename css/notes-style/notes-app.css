@@ -1,6 +1,12 @@
 
 .notes-app {
     margin: 10px;
+    /* text-align: center; */
+}
+
+.actions-bar {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .add-note-btns {
@@ -39,6 +45,7 @@
 
 .note-container {
     display: inline-block;
+    margin: 0 auto;
     /* flex: 1; */
     /* max-width: 10em; */
     /* position: relative; */

@@ -9,13 +9,15 @@ export default {
         <button @click="goBack">Back to Appsus</button>
         <header>
             <h1>Notes:</h1>
-            <div class="add-note-btns">
-                <i class="fas fa-image fa-2x" @click="$router.push('/notes/edit-add/text/image')"></i>
-                <i class="fas fa-pen-square fa-2x" @click="$router.push('/notes/edit-add/text/')"></i>
-                <i class="fas fa-list fa-2x" @click="$router.push('/notes/edit-add/todo/')"></i>
-            </div>
-            <div class="search-bar-container">
-                Search: <input type="search" class="search-input" v-model="filterBy">
+            <div class="actions-bar">
+                <div class="add-note-btns">
+                    <i class="fas fa-image fa-2x" @click="$router.push('/notes/edit-add/text/image')"></i>
+                    <i class="fas fa-pen-square fa-2x" @click="$router.push('/notes/edit-add/text/')"></i>
+                    <i class="fas fa-list fa-2x" @click="$router.push('/notes/edit-add/todo/')"></i>
+                </div>
+                <div class="search-bar-container">
+                    Search: <input type="search" class="search-input" v-model="filterBy">
+                </div>
             </div>
         </header>
         <section class="notes-container">
