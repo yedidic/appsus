@@ -11,8 +11,8 @@ export default {
     <router-link tag="button" to="/email/" class="back-btn">Back</router-link>
        <form class="flex column">
             <h1>{{title}}</h1>
-            <label>Subject<input type="text" v-model="email.subject" placeholder="Subject"/></label>
-            <label>To
+            <label>Subject: <input type="text" v-model="email.subject" placeholder="Subject"/></label>
+            <label>To: 
             <input 
             type="email" 
             v-model="email.to.address" 
@@ -59,8 +59,10 @@ export default {
     created() {
         if (this.$route.params.replyTo) {
             this.email.to.address = this.$route.params.replyTo;
-            this.title = 'Reply';
-            this.email.subject = 'Re: ' + this.$route.params.subject;
+            if(this.$route.params.subject){
+                this.title = 'Reply';
+                this.email.subject = 'Re: ' + this.$route.params.subject;
+            } 
         }
         else if (this.$route.params.emailId) {
             this.getMailToForward()

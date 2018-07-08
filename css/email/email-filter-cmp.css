@@ -6,7 +6,7 @@
 .email-filter .compose-btn {
   color: #3f51b5;
   padding: 5px 10px;
-  width: 160px;
+  width: fit-content;
   font-size: 1rem;
   font-weight: bold;
   font-family: inherit;
@@ -14,11 +14,19 @@
   border-radius: 3px;
   border: 1.5px solid #3f51b5;
   cursor: pointer;
+  transition: all 1s;
+  margin: 0 0 20px 0;
+}
+.email-filter .compose-btn span {
+  display: inline;
 }
 .email-filter .compose-btn:hover {
   background: #404d93;
   color: rgb(205, 239, 255);
   border-color: rgb(205, 239, 255);
+}
+.email-filter .compose-btn:hover span {
+  display:inline
 }
 .email-filter .radio-container {
   /* padding-left: 25px; */
@@ -38,7 +46,13 @@
 .email-filter input[type='text'] {
     width: 100%;
     margin: 0 15px;
+    font-family: inherit;
 }
 .radio-container .radio-read {
   margin: 0 10px;
+}
+@media (max-width: 900px){
+.email-filter .radio-container label{
+  font-size: .8rem;
+
 }

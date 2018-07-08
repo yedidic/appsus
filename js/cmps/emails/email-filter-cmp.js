@@ -7,10 +7,10 @@ export default {
     template: `
         <section class="email-filter">
             <router-link tag="button" to="/email/compose" class="ctrl-btn compose-btn">
-            <i class="fas fa-plus-square"></i> Compose
+            <i class="fas fa-plus-square"></i><span> Compose</span>
             </router-link>
             <form class="flex">
-                <input type="text" v-model="filterBy.txt" @keydown.enter="filterList"/>
+                <input type="text" v-model="filterBy.txt" @keydown.enter="filterList" placeholder="Search"/>
                 <div class="radio-container">
                     <label>
                         <input type="radio" value="all" v-model="filterBy.ctg" @click="filterList" checked>
