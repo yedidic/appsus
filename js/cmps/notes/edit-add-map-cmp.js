@@ -70,7 +70,6 @@ export default {
         addressInput() {
             mapService.searchByAddress(this.addressInput)
             .then((res) => {
-                console.log(res);
                 if (!res.results.length) return
                 let loc = res.results[0].geometry.location;
                 this.note.data.loc = loc;

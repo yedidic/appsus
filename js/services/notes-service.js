@@ -19,7 +19,7 @@ function getFakeNotes() {
          data: {title:'A beautiful bird',text:'', imgUrl: '/img/notes/beautiful-bird.jpg', todos:[]}
         },
         {type: 'mapNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: false,
-        data: {title:'Parked my car here', loc: {lat: 32.0881183, lng: 34.803004}}
+        data: {title:'Parked my car here', text:'', loc: {lat: 32.0881183, lng: 34.803004}, todos:[]}
         },
         {type: 'todoNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: false,
          data: {title: 'Finish before 26/07/18', text:'',todos:[ {txt:'Mastering Vue.JS', isDone: false}, 
@@ -29,13 +29,15 @@ function getFakeNotes() {
                 }
         },
         {type: 'audioNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: false,
-         data: {title:'The sound of magic', audioSrc:'/audio/magical-sound.mp3'}
+         data: {title:'The sound of magic', text:'', audioSrc:'/audio/magical-sound.mp3', todos:[]}
         },
         {type: 'mapNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: false,
-        data: {title:'רחובות אחי', loc: {lat: 31.892773, lng: 34.811272}}
+        data: {title:'רחובות אחי', text:'', loc: {lat: 31.892773, lng: 34.811272}, todos:[]}
         },
         {type: 'textNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: false,
-         data: {title:'fuck he\'s so handsome...',text:'', imgUrl: 'https://vignette.wikia.nocookie.net/glee/images/7/78/Garfield-wallpaper-garfield-3194449-1280-1024-1.jpg/revision/latest?cb=20120229105217', todos:[]}
+         data: {title:'fuck he\'s so handsome...',text:'', 
+         imgUrl: 'https://vignette.wikia.nocookie.net/glee/images/7/78/Garfield-wallpaper-garfield-3194449-1280-1024-1.jpg/revision/latest?cb=20120229105217', 
+         todos:[]}
         },
     ]
 }
