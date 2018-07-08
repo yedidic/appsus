@@ -66,21 +66,35 @@
     display: inline-block;
     max-width: 400px;
     min-width: 300px;
-    /* border: 1px solid gray; */
     border-radius: 5px;
     border: 1.5px solid #3f51b5;
     padding: 1em;
-    /* margin: 1em; */
     transition: 0.3s;
     box-shadow: 10px 10px 20px -4px rgba(0,0,0,0.3);
 }
 
-.note a{
+.note a {
     text-decoration: underline;
+}
+
+.note a:hover{
+    color: #0000EE;
 }
 
 .note:hover {
     transform: scale(1.03)
+}
+
+.note .img-container {
+    display: inline-block;
+    width: 100%;
+}
+
+.note .time-note {
+    display: block;
+    color: gray;
+    font-size: 0.7em;
+    margin-top: 1em;
 }
 
 .note-image {
@@ -116,6 +130,10 @@
     right: 7px;
     top: 10px;
     cursor: pointer;
+}
+
+.notes-app footer {
+    height: 30px;
 }
 
 @media (max-width: 600px) {

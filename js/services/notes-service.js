@@ -2,42 +2,61 @@ import utilsService from './utils-service.js'
 
 const NOTES_KEY = 'appsus-notes'
 
-var lastPinnedIdx = 0;
 
 var notes = utilsService.loadFromStorage(NOTES_KEY)
 if (!notes) {
     notes = getFakeNotes()
     utilsService.saveToStorage(NOTES_KEY, notes)
 }
+console.log('note:', notes);
+
+var lastPinnedIdx = notes.reduce((acc, note) => {
+    if (note.isPinned) acc++
+    return acc
+}, 0)
+
 
 function getFakeNotes() {
     return [
         {type: 'textNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: true,
-         data: {title:'Dream 05/07/18', text: 'I dreamt I finished sprint 3 and then a monster with 3 heads ate me', todos:[]}
+         data: {title:'Dream 05/07/18', text: 'I dreamt I finished sprint 3 and then a monster with 3 heads ate me', 
+                time: 1530790284, todos:[]}
         },
         {type: 'textNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: true,
-         data: {title:'A beautiful bird',text:'', imgUrl: '/img/notes/beautiful-bird.jpg', todos:[]}
+         data: {title:'A beautiful bird',text:'', imgUrl: '/img/notes/beautiful-bird.jpg',
+                time: 1530760284, todos:[]}
         },
         {type: 'mapNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: false,
-        data: {title:'Parked my car here', text:'', loc: {lat: 32.0881183, lng: 34.803004}, todos:[]}
+        data: {title:'Parked my car here', text:'', loc: {lat: 32.0881183, lng: 34.803004},
+                time: 1530890284, todos:[]}
         },
         {type: 'todoNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: false,
          data: {title: 'Finish before 26/07/18', text:'',todos:[ {txt:'Mastering Vue.JS', isDone: false}, 
                                                                  {txt:'Feeding Muki', isDone: false},
                                                                  {txt:'Finishing sprint 3', isDone: true},
-                                                               ]
+                                                               ],
+                time: 1530790284
                 }
         },
         {type: 'audioNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: false,
-         data: {title:'The sound of magic', text:'', audioSrc:'/audio/magical-sound.mp3', todos:[]}
+         data: {title:'The sound of magic', text:'', audioSrc:'/audio/magical-sound.mp3',
+         time: 1530790284, todos:[]}
+        },
+        {type: 'todoNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: false,
+         data: {title:'Don\'t forget!', text: '', todos:[{txt:'email mimi@business.com', isDone: false}, 
+                                                        {txt:'email savta@walla.co.il', isDone: false},
+                                                    ],
+                time: 1530790284
+                }
         },
         {type: 'mapNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: false,
-        data: {title:'רחובות אחי', text:'', loc: {lat: 31.892773, lng: 34.811272}, todos:[]}
+        data: {title:'רחובות אחי', text:'', loc: {lat: 31.892773, lng: 34.811272},
+                time: 1530790284, todos:[]}
         },
         {type: 'textNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: false,
          data: {title:'fuck he\'s so handsome...',text:'', 
          imgUrl: 'https://vignette.wikia.nocookie.net/glee/images/7/78/Garfield-wallpaper-garfield-3194449-1280-1024-1.jpg/revision/latest?cb=20120229105217', 
-         todos:[]}
+         time: 1530790284, todos:[]}
         },
     ]
 }
@@ -102,7 +121,7 @@ function toggleTodoIsDone(todo) {
 
 function getEmptyNote(type) {
     let emptyNote = {'type': type, id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: false,
-            data: {title:'', text: '', imgUrl:'', 
+            data: {title:'', text: '', imgUrl:'', time: Date.now() / 1000,
                     todos:[{txt:'', isDone: false}], 
                     loc: {lat: 32.0881183, lng: 34.803004},
                     audioSrc: ''                

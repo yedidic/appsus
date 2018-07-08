@@ -6,6 +6,7 @@ export default {
     <section class='note map-note'>
         <h4>{{data.title}}</h4>
         <div :id="'map' + id" style="width: 300px; height: 200px;" @click.stop=""></div>
+        <span class="time-note">{{timeNote}}</span>
     </section>
     `,
     data() {
@@ -23,6 +24,11 @@ export default {
                 mapService.addMarker(this.data.loc)
             })
         },
+    },
+    computed: {
+        timeNote: function() {
+            return moment.unix(this.data.time).format('dddd, MMMM Do YYYY, h:mm:ss a');
+        }
     },
     watch: {
         data() {

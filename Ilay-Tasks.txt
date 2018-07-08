@@ -6,7 +6,7 @@
 - add image from url option? V
 - map note V
 - audio note V
+- make email connection V
+- add time stamp to notes V
 
-- make email connection
-- add time stamp to notes?
 - add ... lengthlimit to txt posts
