@@ -48,6 +48,9 @@
   .email-app .email-status.no-mobile {
     display: none;
   }
+  .no-mobile.email-subj {
+    display: none;
+  }
   .email-details .back-btn{
     display: block;
   }

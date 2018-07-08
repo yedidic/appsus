@@ -12,29 +12,67 @@ function getTempEmails() {
     let tempEmails = [
         {
             id: '1fg3sD',
-            subject: 'Ani Adam mamash Tov',
-            from: { name: 'Adam Anak Mamash', address: 'adam@anak.mamsh' },
+            subject: 'Thank you: Information required to stay at Tushita',
+            from: { name: 'Tushita Registration', address: 'register@tushita.info' },
             sent: '2018-05-20',
-            to: { name: 'Jacky Chan', address: 'jacky@mami.mamsh' },
-            msg: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente num /n quam alias culpa neque nihil expedita vero quo similique id ipsam, maiores consequatur dolorem porro qui est quam quod? Et, vero.',
+            to: { name: 'Didi Cohen', address: 'yedidic@gmail.com' },
+            msg: `Dear Didi
+
+            Yes that would be ok.  However mail is slow in India so I hope it arrives while you are here.
+            
+            Kind regards
+            Jana
+            PS if you have more questions, please email this account.`,
             isRead: false
         },
         {
             id: '2fg3sD',
-            subject: 'Baba Mamash Ohev Mama',
-            from: { name: 'Baba Avitan', address: 'baba@avitan.king' },
+            subject: 'ÖBB Ticket – 15:55 – Wien Hbf > Bad Aussee Bahnhof‏',
+            from: { name: 'ÖBB Tickets', address: 'tickets@oebb.at' },
             sent: '2013-02-20',
             to: { name: 'Mama Abukhaliph', address: 'mama@abukhaliph.net' },
-            msg: 'Ba babababababab babababb  bababababab bababababab babababbab /n ababababab babababab babababababqa babbabababababababa abababababababababa',
+            msg: `	
+            Buchungscode: 	0092 9427 7998 8404
+            Buchungsdatum: 	22. Mai 2017
+            Transaktionsnummer: 	536000000009023660
+            Sehr geehrte Kundin,
+            Sehr geehrter Kunde,
+            wir schicken Ihnen hiermit den Link zu Ihren PDF-Tickets.
+            Bitte drucken Sie Ihre Tickets vor Antritt der Reise im A4-Format aus.
+            Tickets herunterladen und ausdrucken
+            Bitte beachten Sie, dass wir PDF-Tickets nicht mehr ändern oder stornieren können. Auch ein Umwandeln in ein Handy-Ticket oder zur Abholung am Bahnhof ist nicht mehr möglich.
+            Ihre PDF-Tickets
+            Wien Hbf  >  Bad Aussee Bahnhof
+            Eine Fahrt für Mama Abukhaliph
+            gilt am 25. Mai 2017 um 15:55	Details >
+            Weitere Fragen?
+            Bei Fragen erreichen Sie uns rund um die Uhr unter der Telefonnummer 05-1717-23. Oder Sie schreiben uns an kundenservice@oebb.at, und wir werden uns umgehend um Ihre Anliegen kümmern.	
+            Wir wünschen Ihnen eine gute Fahrt, 
+            Ihre ÖBB
+            `,
             isRead: true
         },
         {
             id: '3fg3sD',
-            subject: 'Ckhhhh Ckhhh Ckhhhh',
-            from: { name: 'Chaim Moshe', address: 'chaim@moshe.com' },
+            subject: 'Re: Applying for TTC',
+            from: { name: 'Iyengar Yoga Centre', address: 'info@hiyogacentre.com' },
             sent: '2010-05-03',
-            to: { name: 'Jacky Chan', address: 'jacky@mami.mamsh' },
-            msg: 'cccccdcccccd cccccd cccccd cccccd cccccd cccccd /n cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccd cccccdccc',
+            to: { name: 'Jacky Chan', address: 'jacky@mami.mamash' },
+            msg: `
+            Hello Jacky,
+            
+            Thank you for your replies.
+            
+            Yes. We have next TTC in March 2019 from 20th March until 29 April 2019.
+            
+            You will find more details about the TTC Here.
+            
+            Hope this message finds you well.
+            
+            Best regards,
+            
+            Jaydev
+            `,
             isRead: false
         }
     ];

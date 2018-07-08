@@ -41,7 +41,7 @@ export default {
             return moment(this.email.sent).from()
         },
         getThinSubj() {
-            if (this.email.subject.length > 15) return this.email.subject.substring(0, 15) + '...'
+            if (this.email.subject.length > 20) return this.email.subject.substring(0, 20) + '...'
             return this.email.subject;
         }
     },
