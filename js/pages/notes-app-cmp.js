@@ -21,22 +21,24 @@ export default {
             </div>
         </header>
         <section class="notes-container">
-            <template v-for="note in notes">
-                <div class="note-container">
-                    <button :class="['btn' ,'pin-note-btn', {'pin-btn-pinned':note.isPinned}]" 
-                    @click.stop="pinNote(note)">
-                    <i class="fas fa-thumbtack"></i>
-                    </button>
-                    <component  
-                    :is="note.type" 
-                    :data="note.data" 
-                    :key="note.id" 
-                    :style="{'background-color': note.bgc}" 
-                    @click.native="editNote(note)">
-                    </component>
-                    <button class="btn delete-note-btn" @click="deleteNote(note.id)">X</button>
-                </div>
-            </template>
+            <div class="note-container" v-for="note in notes">
+                <img v-if="note.isPinned" class="pin-note-btn" @click.stop="pinNote(note)" 
+                    src="/img/pushed-pin-icon.png"/>
+                <img v-else class="pin-note-btn" @click.stop="pinNote(note)" 
+                    src="/img/unpushed-pin-icon.png"/>  
+                <!-- <button :class="['btn' ,'pin-note-btn', {'pin-btn-pinned':note.isPinned}]" 
+                >
+                <i class="fas fa-thumbtack"></i>
+                </button> -->
+                <component  
+                :is="note.type" 
+                :data="note.data" 
+                :key="note.id" 
+                :style="{'background-color': note.bgc}" 
+                @click.native="editNote(note)">
+                </component>
+                <button class="btn delete-note-btn" @click="deleteNote(note.id)">X</button>
+            </div>
         </section>
     <router-view></router-view>
     </section>

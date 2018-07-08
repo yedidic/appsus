@@ -88,14 +88,12 @@
 
 .pin-note-btn {
     z-index: 1;
+    height: 30px;
+    width: auto;
     display: block;
     position: relative;
-    left: 5px;
-    top: 30px;
+    left: 10px;
+    top: 25px;
     cursor: pointer;
-}
-
-.pin-note-btn:not(.pin-btn-pinned) {
-    background-color: #cccccc;
 }
 
