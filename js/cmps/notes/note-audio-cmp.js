@@ -2,16 +2,16 @@
 export default {
     props: ['data', 'id'],
     template: `
-    <section class='note text-note'>
+    <section class='note audio-note'>
         <h4>{{data.title}}</h4>
-        <img v-if="data.imgUrl" :src="data.imgUrl" class="note-image"/> </br>
-        {{data.text}}
+        <audio :src="data.audioSrc" id="player" controls @click.stop=""></audio>
     </section>
     `,
     data() {
         return {
-            // data: this.data
         }
+    },
+    created() {
     },
     methods: {
     }

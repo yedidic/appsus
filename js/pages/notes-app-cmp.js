@@ -2,6 +2,7 @@ import notesService from '../services/notes-service.js'
 import textNote from '../cmps/notes/note-text-cmp.js'
 import todoNote from '../cmps/notes/note-todo-cmp.js'
 import mapNote from '../cmps/notes/note-map-cmp.js'
+import audioNote from '../cmps/notes/note-audio-cmp.js'
 
 export default {
     name: 'notes-app',
@@ -9,13 +10,14 @@ export default {
     <section class="notes-app">
         <button @click="goBack">Back to Appsus</button>
         <header>
-            <h1>Notes:</h1>
+            <h1>Notes Appsus:</h1>
             <div class="actions-bar">
                 <div class="add-note-btns">
-                    <i class="fas fa-map-marked-alt fa-2x" @click="$router.push('/notes/edit-add/map/')"></i>
-                    <i class="fas fa-image fa-2x" @click="$router.push('/notes/edit-add/text/image')"></i>
                     <i class="fas fa-pen-square fa-2x" @click="$router.push('/notes/edit-add/text/')"></i>
+                    <i class="fas fa-image fa-2x" @click="$router.push('/notes/edit-add/text/image')"></i>
                     <i class="fas fa-list fa-2x" @click="$router.push('/notes/edit-add/todo/')"></i>
+                    <i class="fas fa-map-marked-alt fa-2x" @click="$router.push('/notes/edit-add/map/')"></i>
+                    <i class="far fa-file-audio fa-2x" @click="$router.push('/notes/edit-add/audio/')"></i>
                 </div>
                 <div class="search-bar-container">
                     Search: <input type="search" class="search-input" v-model="filterBy">
@@ -57,7 +59,7 @@ export default {
         notesService.query()
             .then((data) => {
                 this.notes = data;
-                // console.log(this.notes);
+                console.log(this.notes);
             })
     },
     methods: {
@@ -86,7 +88,7 @@ export default {
     components: {
         textNote,
         todoNote,
-        // audioNote,
+        audioNote,
         mapNote,
     }
 
