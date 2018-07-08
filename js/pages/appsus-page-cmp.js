@@ -21,10 +21,11 @@ export default {
     },
     mounted() {
         this.windowCenter = utilsService.getWindowWidth() / 2
+        console.log('window center:', this.windowCenter);
     },
     methods: {
         mouseMove(ev) {
-            if (ev.clientX > 400) {
+            if (ev.clientX > this.windowCenter) {
                 // console.log('right');
                 this.mouseOnRight = true;
             }
