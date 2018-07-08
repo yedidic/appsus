@@ -3,6 +3,7 @@ import emailService from '../services/email-service.js';
 import emailDetails from '../cmps/emails/email-details-cmp.js'
 import emailList from '../cmps/emails/email-list-cmp.js'
 import emailFilter from '../cmps/emails/email-filter-cmp.js'
+import emailStatus from '../cmps/emails/email-status-cmp.js'
 
 export default {
     name: 'email-app',
@@ -28,7 +29,7 @@ export default {
             <div class="no-mobile" style="width: 25px;"></div>
             <email-details :emails="emails" @deleteEmail="deleteEmail" :class="{'no-mobile': !$route.params.emailId}"></email-details>            
     </main>
-        <!-- <email-status></email-status> -->
+        <email-status :emails="emails"></email-status>
     </section>
     `,
 
@@ -45,19 +46,12 @@ export default {
                     this.emails = emails
                 })
         },
-        // deleteEmail(emailIdx) {
-        //     emailService.deleteEmail(emailIdx)
-        //         .then((emails) =>
-        //             this.emails = emails
-        //         )
-        //     // Maybe swal here
-        // },
         deleteEmail(emailId) {
             emailService.deleteEmail(emailId)
                 .then((emails) =>
                     this.emails = emails
                 )
-            // Maybe swal here
+            //TODO: Maybe swal here
         },
     },
     data() {
@@ -93,7 +87,8 @@ export default {
     components: {
         emailList,
         emailFilter,
-        emailDetails
+        emailDetails,
+        emailStatus
     },
     watch: {
         // '$route.params.emailId': function (newEmailId) {
