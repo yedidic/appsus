@@ -26,6 +26,6 @@ export default {
     methods: {
         toggleTodoIsDone(todo) {
             notesService.toggleTodoIsDone(todo)
-        }
+        },
     }
 }

@@ -7,13 +7,13 @@
 .actions-bar {
     display: flex;
     justify-content: space-evenly;
+    align-items: flex-start;
 }
 
 .add-note-btns {
     /* height: 5em; */
     display: flex;
     align-items: center;
-    display: inline-block;
 }
 .add-note-btns i {
     cursor: pointer;
@@ -66,7 +66,7 @@
     transform: scale(1.03)
 }
 
-.note img {
+.note-image {
     max-width: 250px;
     background-color: rgb(116, 32, 46);
 }

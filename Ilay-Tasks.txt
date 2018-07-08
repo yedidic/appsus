@@ -4,7 +4,7 @@
 - fix windowCenter in appsus V
 - improve pin behaviour V
 - add image from url option? V
-- audio note
+- audio note - how do I download this lib??????
 - map note
 - make email connection
 - add time stamp to notes?
