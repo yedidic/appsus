@@ -1,7 +1,6 @@
 
 .notes-app {
     margin: 10px;
-    /* text-align: center; */
 }
 
 .notes-app header {
@@ -16,7 +15,6 @@
 }
 
 .add-note-btns {
-    /* height: 5em; */
     display: flex;
     align-items: center;
 }
@@ -50,15 +48,11 @@
     display: flex;
     flex-flow: row wrap;
     align-items: flex-start;
-    /* height: 3vh; */
 }
 
 .note-container {
     display: inline-block;
     margin: 0 auto;
-    /* flex: 1; */
-    /* max-width: 10em; */
-    /* position: relative; */
 }
 
 .note {

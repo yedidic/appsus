@@ -16,11 +16,6 @@ export default {
         <span class="time-note">{{timeNote}}</span>
     </section>
     `,
-    data() {
-        return {
-            // data: this.data
-        }
-    },
     created() {
         var email_regex = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi;
         var title = this.data.title;

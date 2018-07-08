@@ -2,13 +2,12 @@ import utilsService from './utils-service.js'
 
 const NOTES_KEY = 'appsus-notes'
 
-
 var notes = utilsService.loadFromStorage(NOTES_KEY)
 if (!notes) {
     notes = getFakeNotes()
     utilsService.saveToStorage(NOTES_KEY, notes)
 }
-console.log('note:', notes);
+// console.log('note:', notes);
 
 var lastPinnedIdx = notes.reduce((acc, note) => {
     if (note.isPinned) acc++
@@ -39,7 +38,7 @@ function getFakeNotes() {
                 }
         },
         {type: 'audioNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: false,
-         data: {title:'The sound of magic', text:'', audioSrc:'/audio/magical-sound.mp3',
+         data: {title:'The sound of magic', text:'', audioSrc:'https://raw.githubusercontent.com/yedidic/appsus/master/audio/magical-sound.mp3',
          time: 1530790284, todos:[]}
         },
         {type: 'todoNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: false,
@@ -127,7 +126,6 @@ function getEmptyNote(type) {
                     audioSrc: ''                
                 }
    }
-//    console.log(emptyNote);
    return emptyNote
 }
 

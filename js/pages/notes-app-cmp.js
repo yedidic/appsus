@@ -30,13 +30,12 @@ export default {
                     src="https://raw.githubusercontent.com/yedidic/appsus/master/img/pushed-pin-icon.png"/>
                 <img v-else class="pin-note-btn" @click.stop="pinNote(note)" 
                     src="https://raw.githubusercontent.com/yedidic/appsus/master/img/unpushed-pin-icon.png"/>  
-                <component  
-                :is="note.type" 
-                :data="note.data" 
-                :id="note.id" 
-                :key="note.id" 
-                :style="{'background-color': note.bgc}" 
-                @click.native="editNote(note)">
+                <component :is="note.type" 
+                            :data="note.data" 
+                            :id="note.id" 
+                            :key="note.id" 
+                            :style="{'background-color': note.bgc}" 
+                            @click.native="editNote(note)">
                 </component>
                 <button class="btn delete-note-btn" @click="deleteNote(note.id)">X</button>
             </div>

@@ -12,13 +12,5 @@ export default {
         timeNote: function() {
             return moment.unix(this.data.time).format('dddd, MMMM Do YYYY, h:mm:ss a');
         }
-    },
-    data() {
-        return {
-        }
-    },
-    created() {
-    },
-    methods: {
     }
 }

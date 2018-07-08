@@ -9,11 +9,6 @@ export default {
         <span class="time-note">{{timeNote}}</span>
     </section>
     `,
-    data() {
-        return {
-            // loc: this.data.loc
-        }
-    },
     mounted() {
         this.loadAndRenderMap(this.data.loc.lat, this.data.loc.lng)
     },

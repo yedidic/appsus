@@ -11,11 +11,6 @@ export default {
         <span class="time-note">{{timeNote}}</span>
     </section>
     `,
-    data() {
-        return {
-            // data: this.data
-        }
-    },
     computed: {
         timeNote: function() {
             return moment.unix(this.data.time).format('dddd, MMMM Do YYYY, h:mm:ss a');

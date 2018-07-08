@@ -33,7 +33,6 @@ export default {
                 // console.log('left')
                 this.mouseOnRight = false;
             }
-            // console.log('windowCenter:', this.windowCenter);
         },
         toApp() {
             if (this.mouseOnRight) {
@@ -43,5 +42,4 @@ export default {
             }
         },
     }
-
 }
