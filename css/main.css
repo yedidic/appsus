@@ -115,6 +115,11 @@ ul {
   border: 1.5px solid #3f51b5;
 }
 
+.btn:hover{
+  background: #404d93;
+  color: rgb(205, 239, 255);
+  border-color: rgb(205, 239, 255);
+}
 .appsus-link-hover {
   transform: scale(1.1);
   transform: rotateZ(-6deg);

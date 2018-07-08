@@ -9,6 +9,7 @@ export default {
     name: 'email-app',
     template: `
     <section class="email-app">
+    <router-link to="/" tag="button" class="btn">Back to Appsus</router-link>
     <header>
     <h1>Email Appsus</h1>
     </header>
