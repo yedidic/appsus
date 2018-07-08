@@ -8,13 +8,15 @@ export default {
     name: 'email-preview',
     props: ['email'],
     template: `
-    <section class="email-preview flex center-items" :class="{active: isActive}">
-            <i class="fas fa-envelope-open" v-if="email.isRead"></i>
-            <i class="fas fa-envelope" v-else></i>
-            <router-link tag="button" to="/email" class="far fa-trash-alt" @click.native="deleteEmail"></router-link>
-            <div class="flex column">
-                <h4 class="email-subj">{{email.subject}}</h4>
-                <h4>{{email.from.name}}</h4>
+    <section class="email-preview flex space-between" :class="{active: isActive}">
+            <div class="icon-area flex center-items">
+                <i class="fas fa-envelope-open envelope-icon" v-if="email.isRead"></i>
+                <i class="fas fa-envelope envelope-icon" v-else></i>
+                <router-link to="/email" @click.native="deleteEmail"> <i class="fas fa-trash-alt"></i></router-link>
+                <div class="flex column">
+                    <h4 class="email-subj">{{email.subject}}</h4>
+                    <h4>{{email.from.name}}</h4>
+                </div>
             </div>
             <h5>{{getRelativeDate}}</h5>
     </section>

@@ -9,21 +9,52 @@ export default {
     props: ['emails'],
     template: `
     <section class="email-details flex column">
-    <template v-if="email">
-        <router-link tag="button" to="/email" class="fas fa-inbox back-btn" >Back to Inbox</router-link>
-        <router-link tag="button" to="/email" class="fas fa-trash-alt" @click.native="deleteEmail">Delete</router-link>
-        <router-link tag="button" :to="'/email/compose/reply/'+email.from.address+'/'+email.subject" class="fas fa-reply">Reply</router-link>
-        <router-link tag="button" :to="'/email/compose/forward/'+email.id" class="fas fa-arrow-left">Forward</router-link>
-        <router-link tag="button" to="/email/" class="fas fa-envelope" @click.native="makeUnread" >Make Unread</router-link>
-        <h2>{{email.subject}}</h2>
-        <h3>From: {{email.from.name}} <{{email.from.address}}></h3>
-        <h4>Sent: {{getFormattedDate}}</h4>
-        <h3>To: {{email.to.name}} <{{email.to.address}}> </h3>
-        <div class="pre-wrapper">
-                <pre>{{email.msg}}</pre>
-        </div>
-    </template>
-    <h2 v-else>Inbox is Empty!</h2>
+        <template v-if="email">
+            <div class="ctrl-btns-container">
+                <router-link 
+                    tag="button" 
+                    to="/email" 
+                    class="ctrl-btn back-btn">
+                        <i class="fas fa-inbox"></i><span> Back to Inbox</span>
+                </router-link>
+                <router-link 
+                    tag="button" 
+                    to="/email"  
+                    @click.native="deleteEmail" 
+                    class="ctrl-btn">
+                        <i class="fas fa-trash-alt"></i><span> Delete</span>
+                </router-link>
+                <router-link 
+                    tag="button" 
+                    :to="'/email/compose/reply/'+email.from.address+'/'+email.subject"
+                    class="ctrl-btn">
+                        <i class="fas fa-reply""></i><span> Reply</span>
+                </router-link>
+                <router-link 
+                    tag="button" 
+                    :to="'/email/compose/forward/'+email.id"
+                    class="ctrl-btn">
+                        <i  class="fas fa-arrow-left"></i><span> Forward</span>
+                </router-link>
+                    <router-link 
+                    tag="button" 
+                    to="/email/" 
+                    @click.native="makeUnread"
+                    class="ctrl-btn">
+                        <i class="fas fa-envelope"></i><span> Make Unread</span>
+                </router-link>
+            </div>
+
+            <h2>{{email.subject}}</h2>
+            <h3>From: {{email.from.name}} <{{email.from.address}}></h3>
+            <h4>Sent: {{getFormattedDate}}</h4>
+            <h3>To: {{email.to.name}} <{{email.to.address}}> </h3>
+            <hr>
+            <div class="pre-wrapper">
+                    <pre>{{email.msg}}</pre>
+            </div>
+        </template>
+        <h2 v-else>Inbox is Empty!</h2>
     </section>
                 `,
 

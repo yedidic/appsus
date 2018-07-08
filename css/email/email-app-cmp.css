@@ -10,6 +10,20 @@
   display: none;
 }
 
+.email-list-container {
+  width: 100%;
+  border-radius: 2px;
+}
+.no-emails-to-show {
+  background: rgb(79, 18, 158);
+}
+.no-emails-to-show h5{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
 @media (max-width: 400px){
   .email-app main *.no-mobile {
     display: none;

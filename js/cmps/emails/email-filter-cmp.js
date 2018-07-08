@@ -6,20 +6,22 @@ export default {
     name: 'email-filter',
     template: `
         <section class="email-filter">
-            <form>
+            <form class="flex center-items">
                 <input type="text" v-model="filterBy.txt" @keydown.enter="filterList"/>
-                <label>
-                    All
-                    <input type="radio" value="all" v-model="filterBy.ctg" @click="filterList" checked>
-                </label>
-                <label>
-                    Read
-                    <input type="radio" value="read" v-model="filterBy.ctg" @click="filterList">
-                </label>
-                <label>
-                    Unread
-                     <input type="radio" value="unread" v-model="filterBy.ctg" @click="filterList">
-                </label>
+                <div class="radio-container">
+                    <label>
+                        All
+                        <input type="radio" value="all" v-model="filterBy.ctg" @click="filterList" checked>
+                    </label>
+                    <label>
+                        Read
+                        <input type="radio" value="read" v-model="filterBy.ctg" @click="filterList">
+                    </label>
+                    <label>
+                        Unread
+                        <input type="radio" value="unread" v-model="filterBy.ctg" @click="filterList">
+                    </label>
+                </div>
             </form>
         </section>
     `,
