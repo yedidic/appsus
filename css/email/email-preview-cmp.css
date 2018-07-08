@@ -29,6 +29,7 @@
 }
 .email-preview .email-subj {
   padding: 0 0 10px 0;
+  margin: 0;
   width: 200px;
   font-size: 1.1rem;
 }
