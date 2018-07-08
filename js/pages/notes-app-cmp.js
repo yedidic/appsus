@@ -27,24 +27,20 @@ export default {
         <section class="notes-container">
             <div class="note-container" v-for="note in notes">
                 <img v-if="note.isPinned" class="pin-note-btn" @click.stop="pinNote(note)" 
-                    src="/img/pushed-pin-icon.png"/>
+                    src="https://raw.githubusercontent.com/yedidic/appsus/master/img/pushed-pin-icon.png"/>
                 <img v-else class="pin-note-btn" @click.stop="pinNote(note)" 
-                    src="/img/unpushed-pin-icon.png"/>  
-                <!-- <button :class="['btn' ,'pin-note-btn', {'pin-btn-pinned':note.isPinned}]" 
-                >
-                <i class="fas fa-thumbtack"></i>
-                </button> -->
-                <component  
-                :is="note.type" 
-                :data="note.data" 
-                :id="note.id" 
-                :key="note.id" 
-                :style="{'background-color': note.bgc}" 
-                @click.native="editNote(note)">
+                    src="https://raw.githubusercontent.com/yedidic/appsus/master/img/unpushed-pin-icon.png"/>  
+                <component :is="note.type" 
+                            :data="note.data" 
+                            :id="note.id" 
+                            :key="note.id" 
+                            :style="{'background-color': note.bgc}" 
+                            @click.native="editNote(note)">
                 </component>
                 <button class="btn delete-note-btn" @click="deleteNote(note.id)">X</button>
             </div>
         </section>
+        <footer></footer>
     <router-view></router-view>
     </section>
     `,
@@ -55,11 +51,9 @@ export default {
         }
     },
     created() {
-        console.log('notes-app created')
         notesService.query()
             .then((data) => {
                 this.notes = data;
-                console.log(this.notes);
             })
     },
     methods: {

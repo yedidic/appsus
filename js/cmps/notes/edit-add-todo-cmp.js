@@ -12,8 +12,8 @@ export default {
                     <div class="flex" v-for="(todo, todoIdx) in note.data.todos">
                         <button @click="deleteTodo(todoIdx)">X</button>
                         <input type="text" v-model="todo.txt" :class="{'todo-done': todo.isDone}"/>
-                        <i v-if="todo.isDone" class="far fa-check-square" @click="toggleTodoIsDone(todo)"></i>
-                        <i v-else class="far fa-square" @click="toggleTodoIsDone(todo)"></i>
+                        <i v-if="todo.isDone" class="far fa-check-square fa-2x" @click="toggleTodoIsDone(todo)"></i>
+                        <i v-else class="far fa-square fa-2x" @click="toggleTodoIsDone(todo)"></i>
                     </div>
                     <button @click="addTodo">
                         <i class="fas fa-plus"></i>

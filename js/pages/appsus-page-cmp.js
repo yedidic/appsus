@@ -5,8 +5,8 @@ export default {
     template: `
     <section class="appsus-page" @mousemove="mouseMove" @click.self="toApp">
         <h1>Appsus</h1>
-        <img v-if="mouseOnRight" src="/img/sus-right-emails.png"/>
-        <img v-else src="/img/sus-left-notes.png"/>
+        <img v-if="mouseOnRight" src="https://raw.githubusercontent.com/yedidic/appsus/master/img/sus-right-emails.png"/>
+        <img v-else src="https://raw.githubusercontent.com/yedidic/appsus/master/img/sus-left-notes.png"/>
         <div class="appsus-links-container">
             <router-link :class="{'appsus-link-hover': !mouseOnRight}" to="/notes">Notes</router-link> |
             <router-link :class="{'appsus-link-hover': mouseOnRight}" to="/email">Email</router-link>
@@ -33,7 +33,6 @@ export default {
                 // console.log('left')
                 this.mouseOnRight = false;
             }
-            // console.log('windowCenter:', this.windowCenter);
         },
         toApp() {
             if (this.mouseOnRight) {
@@ -43,5 +42,4 @@ export default {
             }
         },
     }
-
 }

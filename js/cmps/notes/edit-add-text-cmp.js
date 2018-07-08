@@ -28,7 +28,7 @@ export default {
                         <!-- <i class="fas fa-file-upload"></i> -->
                         <!-- </input> -->
                     </div>
-                    <i class="far fa-image" @click="imageInputShown = true"></i>
+                    <i class="far fa-image fa-2x" @click="imageInputShown = true"></i>
                 </div>
                 <input type="color" value="AB8BA8" v-model="note.bgc">
                 <button @click="saveNote">Save</button>

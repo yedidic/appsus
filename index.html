@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/yedidic/appsus/master/img/appsus-favicon.jpg"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/main.css">
+        <title>Appsus</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="/img/appsus-favicon.jpg"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css">
-    <title>Appsus</title>
-</head>
+    <body>
+        <div id="app">
+            <router-view></router-view>
+        </div>
 
-<body>
-    <div id="app">
-        <!-- <nav-bar></nav-bar> -->
-        <router-view></router-view>
-    </div>
-    <!-- <script src="lib/jscolor.js"></script> -->
-    <script src="https://unpkg.com/vue-picture-input"></script>
-    <script src="lib/moment.js"></script>
-    <script src="lib/vue.js"></script>
-    <script src="lib/vue-router.js"></script>
-    <script type="module" src="js/main.js"></script>
-</body>
-
+        <script src="https://unpkg.com/vue-picture-input"></script>
+        <script src="lib/moment.js"></script>
+        <script src="lib/vue.js"></script>
+        <script src="lib/vue-router.js"></script>
+        <script type="module" src="js/main.js"></script>
+    </body>
 </html>
