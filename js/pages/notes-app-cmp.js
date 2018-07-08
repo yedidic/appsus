@@ -27,9 +27,9 @@ export default {
         <section class="notes-container">
             <div class="note-container" v-for="note in notes">
                 <img v-if="note.isPinned" class="pin-note-btn" @click.stop="pinNote(note)" 
-                    src="https://github.com/yedidic/appsus/blob/master/img/pushed-pin-icon.png"/>
+                    src="https://raw.githubusercontent.com/yedidic/appsus/master/img/pushed-pin-icon.png"/>
                 <img v-else class="pin-note-btn" @click.stop="pinNote(note)" 
-                    src="https://github.com/yedidic/appsus/blob/master/img/unpushed-pin-icon.png"/>  
+                    src="https://raw.githubusercontent.com/yedidic/appsus/master/img/unpushed-pin-icon.png"/>  
                 <component  
                 :is="note.type" 
                 :data="note.data" 
