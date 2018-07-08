@@ -10,7 +10,7 @@ export default {
     <section class="notes-app">
         <button @click="goBack" class="btn">Back to Appsus</button>
         <header>
-            <h1>Notes Appsus:</h1>
+            <h1>Notes Appsus</h1>
             <div class="actions-bar">
                 <div class="add-note-btns">
                     <i class="fas fa-pen-square fa-2x" @click="$router.push('/notes/edit-add/text/')"></i>

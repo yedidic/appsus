@@ -4,7 +4,9 @@ export default {
     name: 'appsus-page',
     template: `
     <section class="appsus-page" @mousemove="mouseMove" @click.self="toApp">
+        <header>
         <h1>Appsus</h1>
+        </header>
         <img v-if="mouseOnRight" src="https://raw.githubusercontent.com/yedidic/appsus/master/img/sus-right-emails.png"/>
         <img v-else src="https://raw.githubusercontent.com/yedidic/appsus/master/img/sus-left-notes.png"/>
         <div class="appsus-links-container">
