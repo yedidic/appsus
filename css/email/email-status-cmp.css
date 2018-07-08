@@ -1,0 +1,29 @@
+.email-status {
+  width: 100%;
+  position: absolute;
+}
+.email-status *{
+  font-size: 2rem;
+  color: white;
+}
+
+.email-status h4 {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  top:  2.5rem;
+  text-align: center;
+  font-weight: 700;
+}
+.email-status ul{
+  width: 100%;
+}
+.email-status li{
+  width: 100%;
+}
+.email-status .status-read {
+  background: green; 
+}
+.email-status .status-unread {
+  background: red;
+}
