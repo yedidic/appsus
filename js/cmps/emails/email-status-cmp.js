@@ -45,12 +45,12 @@ export default {
             this.countRead();
         },
         '$route.params.emailId'(){
-            // this.countRead();
+            this.countRead();
         }
     },
     computed: {
         statusPrecent() {
-            let str = (this.isReadCount / this.emails.length * 100).toFixed(2) + '% Done! 😇 ';
+            let str = (this.isReadCount / this.emails.length * 100).toFixed() + '% Done! 😇 ';
             if (this.unReadCount) str += this.unReadCount + ' New Email';
             if (this.unReadCount > 1) str += 's'
             return str;

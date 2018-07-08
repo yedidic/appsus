@@ -5,15 +5,18 @@
 .email-app main {
   /* align-items: center; */
   justify-content: center;
+  padding: 0 20px;
 }
 .email-details .back-btn{
   display: none;
 }
 
 .email-list-container {
-  width: 100%;
+  width: 43%;
+  /* min-width: 440px; */
   border-radius: 2px;
 }
+
 .no-emails-to-show {
   background: rgb(79, 18, 158);
 }

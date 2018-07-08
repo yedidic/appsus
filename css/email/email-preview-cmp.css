@@ -13,33 +13,48 @@
 .email-preview a{
   color: inherit;
 }
-.email-preview i {
-  font-size:1.2rem;
-  color: inherit;
-}
 .email-preview .envelope-icon{
   margin: 0 10px;
 }
 .email-preview .fa-trash-alt{
-  margin: 0 45px 0 5px;
+  margin: 0 15px 0 5px;
 }
 
-.email-preview h4 {
-  margin: 0;
-  padding: 0;
-  font-size: 0.75rem;
+.email-preview i {
+  font-size:1.2rem;
+  color: inherit;
 }
 .email-preview .email-subj {
+  margin: 0;
+  padding: 0;
   width:230px;
   font-size: 1.1rem;
 }
-.email-preview h5 {
+.email-preview h4, h5 {
   margin: 0;
   padding: 0;
   text-align: left;
-  width: 120px;
-  font-size: 1rem;
+  font-size: 0.8rem;
   display: flex;
   align-items: center;
 }
+.email-preview h4 {
+  width:  230px;
+}
+.email-preview h4 {
+  width:  125px;
+}
 
+@media (max-width: 900px){
+  .email-preview i{
+    font-size:1rem;
+  }
+  .email-preview .email-subj {
+    font-size: .95rem;
+    width:  200px;
+  }
+  .email-preview h5 {
+    font-size: 0.7rem; 
+    width: 90px;
+  }
+}

@@ -3,12 +3,17 @@
   border-radius: 2px;
   padding: 10px;
   color: #27347a;
+  width: 60%;
 }
 .email-details * {
   margin: 0 0 0.5rem 0;
 }
 .email-details .pre-wrapper {
   /* color:red; */
+}
+.email-details .subject{
+  max-width: 500px;
+  display: inline;
 }
 .email-details pre {
   width: 85%;

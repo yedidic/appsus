@@ -45,7 +45,7 @@ export default {
                 </router-link>
             </div>
 
-            <h2>{{email.subject}}</h2>
+            <pre class="subject"><h2>{{email.subject}}</h2></pre>
             <h3>From: {{email.from.name}} <{{email.from.address}}></h3>
             <h4>Sent: {{getFormattedDate}}</h4>
             <h3>To: {{email.to.name}} <{{email.to.address}}> </h3>

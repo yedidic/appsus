@@ -6,20 +6,23 @@ export default {
     name: 'email-filter',
     template: `
         <section class="email-filter">
-            <form class="flex center-items">
+            <router-link tag="button" to="/email/compose" class="ctrl-btn compose-btn">
+            <i class="fas fa-plus-square"></i> Compose
+            </router-link>
+            <form class="flex">
                 <input type="text" v-model="filterBy.txt" @keydown.enter="filterList"/>
                 <div class="radio-container">
                     <label>
-                        All
                         <input type="radio" value="all" v-model="filterBy.ctg" @click="filterList" checked>
+                        All
                     </label>
-                    <label>
-                        Read
+                    <label class="radio-read">
                         <input type="radio" value="read" v-model="filterBy.ctg" @click="filterList">
+                        Read
                     </label>
                     <label>
-                        Unread
                         <input type="radio" value="unread" v-model="filterBy.ctg" @click="filterList">
+                        Unread
                     </label>
                 </div>
             </form>

@@ -1,6 +1,7 @@
 .email-status {
   width: 100%;
-  position: absolute;
+  position: fixed;
+  bottom: 5px;
 }
 .email-status *{
   font-size: 2rem;
@@ -26,4 +27,14 @@
 }
 .email-status .status-unread {
   background: red;
+}
+
+@media (max-width: 400px){
+  .email-status *{
+    font-size: 1rem;
+  }
+  .email-status h4 {
+    top:  20px;
+  }
+
 }

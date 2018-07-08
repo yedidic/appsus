@@ -14,7 +14,7 @@ export default {
                 <i class="fas fa-envelope envelope-icon" v-else></i>
                 <router-link to="/email" @click.native="deleteEmail"> <i class="fas fa-trash-alt"></i></router-link>
                 <div class="flex column">
-                    <h4 class="email-subj">{{getThinStr}}</h4>
+                    <h3 class="email-subj">{{getThinStr}}</h3>
                     <h4>{{email.from.name}}</h4>
                 </div>
             </div>
@@ -44,13 +44,11 @@ export default {
         this.checkIfOpen();
     },
     computed: {
-        getRelativeDate() {
-            // return this.email.sent;
-            // return 8
+        getRelativeDate() {     
             return moment(this.email.sent).from()
         },
         getThinStr(){
-            if(this.email.subject.length > 17) return this.email.subject.substring(0, 17) +'...'
+            if(this.email.subject.length > 15) return this.email.subject.substring(0, 15) +'...'
             return this.email.subject;
         }
     },

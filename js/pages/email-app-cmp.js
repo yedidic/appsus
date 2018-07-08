@@ -9,7 +9,6 @@ export default {
     name: 'email-app',
     template: `
     <section class="email-app">
-    <router-link tag="button" to="/email/compose" class="compose-btn">Compose</router-link>
     <header>
     <h1>Email Appsus</h1>
     </header>

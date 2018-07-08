@@ -31,7 +31,7 @@ export default {
             email: {
                 subject: '',
                 from: { name: 'Me MaMi', address: 'me@me.com' },
-                sent: moment().format(emailService.DATE_FORMAT),
+                sent:'',
                 to: { name: '', address: '' },
                 msg: '',
                 isRead: false
