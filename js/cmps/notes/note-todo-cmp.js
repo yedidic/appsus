@@ -1,7 +1,7 @@
 import notesService from '../../services/notes-service.js'
 
 export default {
-    props: ['data'],
+    props: ['data', 'id'],
     template: `
     <section class='note todo-note'>
         <h4>{{data.title}}</h4>
