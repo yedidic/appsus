@@ -23,7 +23,7 @@ function getFakeNotes() {
                 time: 1530790284, todos:[]}
         },
         {type: 'textNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: true,
-         data: {title:'A beautiful bird',text:'', imgUrl: '/img/notes/beautiful-bird.jpg',
+         data: {title:'A beautiful bird',text:'', imgUrl: 'https://raw.githubusercontent.com/yedidic/appsus/master/img/notes/beautiful-bird.jpg',
                 time: 1530760284, todos:[]}
         },
         {type: 'mapNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: false,
