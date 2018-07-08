@@ -37,7 +37,7 @@
 }
 
 /* //mobile */
-@media (max-width: 750px){
+@media (max-width: 875px){
 
   .email-app main{
     padding: 0;
@@ -50,11 +50,8 @@
   }
   .email-details .back-btn{
     display: block;
-    /* change to relative and to float on the screen */
   }
-
   .email-list-container {
     width: 100%;
-  }
-  
+  } 
 }

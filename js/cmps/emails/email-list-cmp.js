@@ -16,27 +16,17 @@ export default {
         </ul>
     </section>
     `,
-
-
-    mounted() {
-    },
     methods: {
         makeUnread(emailId) {
             emailService.changeEmailReadStatus(emailId)
                 .then(() => this.$emit('opened')
                 )
         },
-        
         deleteEmail(emailId) {
-            this.$emit('deleteEmail',emailId)
+            this.$emit('deleteEmail', emailId)
         }
     },
     components: {
         emailPreview
-    },
-    watch: {
-
     }
-
-
 }

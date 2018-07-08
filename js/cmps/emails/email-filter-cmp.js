@@ -1,7 +1,3 @@
-// on mobile
-//Display none by id - id===true => email-status &  email-list - style.display=none
-// no-id => email-details => display: none;
-
 export default {
     name: 'email-filter',
     template: `

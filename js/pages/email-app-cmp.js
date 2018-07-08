@@ -9,26 +9,26 @@ export default {
     name: 'email-app',
     template: `
     <section class="email-app">
-    <router-link to="/" tag="button" class="btn">Back to Appsus</router-link>
-    <header>
-    <h1>Email Appsus</h1>
-    </header>
-    <main class="flex">
-                <div class="flex column email-list-container" 
-                :class="{'no-mobile': $route.params.emailId}">
-                        <email-filter 
-                        :emails="emails" 
-                        @filter="setFilter"
-                        ></email-filter>
-                        <email-list v-if="emailsToShow.length !== 0" :emails="emailsToShow" @deleteEmail="deleteEmail" class="flex column" @opened="loadEmails">
-                        </email-list>
-                    <div class="no-emails-to-show" v-else>
-                        <h5  class="email-preview">No Emails</h5>
+        <router-link to="/" tag="button" class="btn">Back to Appsus</router-link>
+        <header>
+        <h1>Email Appsus</h1>
+        </header>
+        <main class="flex">
+                    <div class="flex column email-list-container" 
+                    :class="{'no-mobile': $route.params.emailId}">
+                            <email-filter 
+                            :emails="emails" 
+                            @filter="setFilter"
+                            ></email-filter>
+                            <email-list v-if="emailsToShow.length !== 0" :emails="emailsToShow" @deleteEmail="deleteEmail" class="flex column" @opened="loadEmails">
+                            </email-list>
+                        <div class="no-emails-to-show" v-else>
+                            <h5 class="email-preview">No Emails</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="no-mobile" style="width: 25px;"></div>
-                <email-details :emails="emails" @deleteEmail="deleteEmail" :class="{'no-mobile': !$route.params.emailId}"></email-details>            
-    </main>
+                    <div class="no-mobile" style="width: 25px;"></div>
+                    <email-details :emails="emails" @deleteEmail="deleteEmail" :class="{'no-mobile': !$route.params.emailId}"></email-details>            
+        </main>
         <email-status :emails="emails"></email-status>
     </section>
     `,
@@ -51,7 +51,6 @@ export default {
                 .then((emails) =>
                     this.emails = emails
                 )
-            //TODO: Maybe swal here
         },
     },
     data() {

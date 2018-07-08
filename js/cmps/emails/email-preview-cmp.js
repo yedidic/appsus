@@ -1,7 +1,3 @@
-// on mobile
-//Display none by id - id===true => email-status &  email-list - style.display=none
-// no-id => email-details => display: none;
-
 // Father: email-list-cmp
 
 export default {
@@ -14,14 +10,13 @@ export default {
                 <i class="fas fa-envelope envelope-icon" v-else></i>
                 <router-link to="/email" @click.native="deleteEmail"> <i class="fas fa-trash-alt"></i></router-link>
                 <div class="flex column">
-                    <h3 class="email-subj">{{getThinStr}}</h3>
+                    <h3 class="email-subj">{{getThinSubj}}</h3>
                     <h4>{{email.from.name}}</h4>
                 </div>
             </div>
             <h5>{{getRelativeDate}}</h5>
     </section>
-                `,
-
+    `,
     data() {
         return {
             isActive: false
@@ -38,22 +33,20 @@ export default {
             this.$emit('deleteEmail', this.email.id)
         }
     },
-    created() {
-    },
     mounted() {
         this.checkIfOpen();
     },
     computed: {
-        getRelativeDate() {     
+        getRelativeDate() {
             return moment(this.email.sent).from()
         },
-        getThinStr(){
-            if(this.email.subject.length > 15) return this.email.subject.substring(0, 15) +'...'
+        getThinSubj() {
+            if (this.email.subject.length > 15) return this.email.subject.substring(0, 15) + '...'
             return this.email.subject;
         }
     },
     watch: {
-        '$route.params.emailId': function (newEmailId) {
+        '$route.params.emailId'() {
             this.checkIfOpen()
         }
     }

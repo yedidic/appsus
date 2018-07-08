@@ -1,4 +1,3 @@
-
 // Father: email-app-cmp
 
 export default {
@@ -16,8 +15,7 @@ export default {
             </li>
         </ul>
     </section>
-                `,
-
+    `,
     data() {
         return {
             isReadCount: 0,
@@ -25,16 +23,13 @@ export default {
         }
     },
     methods: {
-        countRead(){
+        countRead() {
             this.isReadCount = 0;
             this.unReadCount = 0;
             this.emails.forEach(email => {
-                if (email.isRead) this.isReadCount++
-                else {
-                    this.unReadCount++
-                }
+                if (email.isRead) this.isReadCount++;
+                else this.unReadCount++;
             });
-            // this.unReadCount = this.emails.length - this.isReadCount;
         }
     },
     mounted() {
@@ -44,7 +39,7 @@ export default {
         emails() {
             this.countRead();
         },
-        '$route.params.emailId'(){
+        '$route.params.emailId'() {
             this.countRead();
         }
     },
@@ -52,9 +47,8 @@ export default {
         statusPrecent() {
             let str = (this.isReadCount / this.emails.length * 100).toFixed() + '% Done! 😇 ';
             if (this.unReadCount) str += this.unReadCount + ' New Email';
-            if (this.unReadCount > 1) str += 's'
+            if (this.unReadCount > 1) str += 's';
             return str;
         },
-
     }
 }

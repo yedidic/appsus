@@ -1,8 +1,4 @@
-// on mobile
-//Display none by id - id===true => email-status &  email-list - style.display=none
-// no-id => email-details => display: none;
 import emailService from '../../services/email-service.js';
-
 
 export default {
     name: 'email-details',
@@ -50,14 +46,11 @@ export default {
             <h4>Sent: {{getFormattedDate}}</h4>
             <h3>To: {{email.to.name}} <{{email.to.address}}> </h3>
             <hr>
-            <div class="pre-wrapper">
-                    <pre>{{email.msg}}</pre>
-            </div>
+            <pre>{{email.msg}}</pre>
         </template>
-        <h2 v-else>Inbox is Empty!</h2>
+        <h2 class="empty-inbox" v-else>Inbox is Empty!</h2>
     </section>
-                `,
-
+    `,
     data() {
         return {
             email: {
@@ -69,11 +62,10 @@ export default {
                 msg: '',
                 isRead: false
             },
-            // mobileMode: false,
         }
     },
     watch: {
-        '$route.params.emailId': function (newEmailId) {
+        '$route.params.emailId'() {
             this.loadEmail();
         },
         emails() {
@@ -83,20 +75,16 @@ export default {
     created() {
         this.loadEmail()
     },
-    mounted() {
-    },
     methods: {
         loadEmail() {
             if (!this.$route.params.emailId) {
                 this.loadFirstIdxEmail()
                 return;
             }
-            //TODO: optional: make them at same promise 
-            // or maybe in reject(firstIdxMail); (firstIdx && my email)
             emailService.getById(this.$route.params.emailId)
-                .then((email, firstIdxEmail) => {
+                .then((email) => {
                     if (email) this.email = email
-                    else this.loadFirstIdxEmail()
+                    else this.loadFirstIdxEmail();
                 })
         },
         loadFirstIdxEmail() {
