@@ -80,6 +80,7 @@ function deleteNote(id) {
 }
 
 function handlePinNote(note) {
+    
     note.isPinned = !note.isPinned;
     let noteIdx = notes.findIndex(currNote => currNote.id === note.id);
     notes.splice(noteIdx, 1)
@@ -91,6 +92,7 @@ function handlePinNote(note) {
         lastPinnedIdx--;
     }
     utilsService.saveToStorage(NOTES_KEY, notes)
+    console.log('lastPinnedIdx:', lastPinnedIdx);
 }
 
 function toggleTodoIsDone(todo) {

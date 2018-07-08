@@ -21,7 +21,7 @@ export default {
     },
     mounted() {
         this.windowCenter = utilsService.getWindowWidth() / 2
-        console.log('window center:', this.windowCenter);
+        // console.log('window center:', this.windowCenter);
     },
     methods: {
         mouseMove(ev) {

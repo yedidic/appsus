@@ -3,8 +3,9 @@
 - pin note btn V
 - fix windowCenter in appsus V
 - improve pin behaviour V
-- add image from url option?
+- add image from url option? V
 - audio note
 - map note
 - make email connection
-
+- add time stamp to notes?
+- add ... lengthlimit to txt posts
