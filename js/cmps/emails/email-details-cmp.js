@@ -10,7 +10,7 @@ export default {
     template: `
     <section class="email-details flex column">
         <template v-if="email">
-            <div class="ctrl-btns-container">
+            <div class="ctrl-btns-container flex center-items">
                 <router-link 
                     tag="button" 
                     to="/email" 

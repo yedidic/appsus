@@ -5,11 +5,16 @@
   color: #27347a;
   width: 60%;
 }
+@media (max-width: 750px){
+.email-details{
+  width: 100%
+}
+}
 .email-details * {
   margin: 0 0 0.5rem 0;
 }
-.email-details .pre-wrapper {
-  /* color:red; */
+.ctrl-btns-container{
+  width: 100%;
 }
 .email-details .subject{
   max-width: 500px;
@@ -26,20 +31,28 @@
 .email-details .ctrl-btn {
   color: #3f51b5;
   padding: 5px 10px;
-  width: 160px;
+  width: fit-content;
   font-size: 1rem;
   font-weight: bold;
   background: rgb(205, 239, 255);
   border-radius: 3px;
   border: 1.5px solid #3f51b5;
   cursor: pointer;
+  transition: all 1s;
+  margin-right: 20px;
 }
 .email-details .ctrl-btn span{
   font-family: 'Montserrat', sans-serif;
+  display: none;
+  /* transition: all 1s; */
 }
+
 .email-details .ctrl-btn:hover{
   background: #404d93;
   color: rgb(205, 239, 255);
   border-color: rgb(205, 239, 255);
+}
+.email-details .ctrl-btn:hover span{
+display: inline;
 }
 

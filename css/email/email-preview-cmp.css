@@ -27,7 +27,7 @@
 .email-preview .email-subj {
   margin: 0;
   padding: 0;
-  width:230px;
+  width:185px;
   font-size: 1.1rem;
 }
 .email-preview h4, h5 {
@@ -39,10 +39,11 @@
   align-items: center;
 }
 .email-preview h4 {
-  width:  230px;
+  width:  185px;
 }
-.email-preview h4 {
-  width:  125px;
+.email-preview h5 {
+  width:  120px;
+  
 }
 
 @media (max-width: 900px){
@@ -51,10 +52,14 @@
   }
   .email-preview .email-subj {
     font-size: .95rem;
-    width:  200px;
+    width:  180px;
   }
   .email-preview h5 {
     font-size: 0.7rem; 
     width: 90px;
+  }
+}
+@media (max-width: 750px){
+  .email-preview {
   }
 }
