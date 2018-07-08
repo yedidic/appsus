@@ -8,7 +8,7 @@ export default {
     name: 'notes-app',
     template: `
     <section class="notes-app">
-        <button @click="goBack">Back to Appsus</button>
+        <button @click="goBack" class="btn">Back to Appsus</button>
         <header>
             <h1>Notes Appsus:</h1>
             <div class="actions-bar">

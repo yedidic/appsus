@@ -12,11 +12,11 @@ if (!notes) {
 
 function getFakeNotes() {
     return [
-        {type: 'textNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: false,
-         data: {title:'A beautiful bird',text:'', imgUrl: '/img/notes/beautiful-bird.jpg', todos:[]}
-        },
-        {type: 'textNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: false,
+        {type: 'textNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: true,
          data: {title:'Dream 05/07/18', text: 'I dreamt I finished sprint 3 and then a monster with 3 heads ate me', todos:[]}
+        },
+        {type: 'textNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: true,
+         data: {title:'A beautiful bird',text:'', imgUrl: '/img/notes/beautiful-bird.jpg', todos:[]}
         },
         {type: 'mapNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: false,
         data: {title:'Parked my car here', loc: {lat: 32.0881183, lng: 34.803004}}
@@ -35,7 +35,7 @@ function getFakeNotes() {
         data: {title:'רחובות אחי', loc: {lat: 31.892773, lng: 34.811272}}
         },
         {type: 'textNote', id: utilsService.makeid(), bgc: '#FFFFFF', isPinned: false,
-         data: {title:'fuck he\' so handsome...',text:'', imgUrl: 'https://vignette.wikia.nocookie.net/glee/images/7/78/Garfield-wallpaper-garfield-3194449-1280-1024-1.jpg/revision/latest?cb=20120229105217', todos:[]}
+         data: {title:'fuck he\'s so handsome...',text:'', imgUrl: 'https://vignette.wikia.nocookie.net/glee/images/7/78/Garfield-wallpaper-garfield-3194449-1280-1024-1.jpg/revision/latest?cb=20120229105217', todos:[]}
         },
     ]
 }

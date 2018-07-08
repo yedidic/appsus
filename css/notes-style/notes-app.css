@@ -9,9 +9,10 @@
 } 
 
 .actions-bar {
+    color: #3f51b5;
     display: flex;
     justify-content: space-evenly;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .add-note-btns {
@@ -31,6 +32,8 @@
 .search-bar-container {
     margin: 1em 0;
     display: inline-block;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 .search-input {
@@ -38,6 +41,9 @@
     padding: 0.5em;
     position: relative;
     bottom: 0.5em;
+    border-radius: 5px;
+    border-style: solid;
+    border: 1.5px solid #3f51b5;
 }
 
 .notes-container {
@@ -60,11 +66,13 @@
     display: inline-block;
     max-width: 400px;
     min-width: 300px;
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
     border-radius: 5px;
+    border: 1.5px solid #3f51b5;
     padding: 1em;
-    margin: 1em;
-    transition: 0.3s
+    /* margin: 1em; */
+    transition: 0.3s;
+    box-shadow: 10px 10px 20px -4px rgba(0,0,0,0.3);
 }
 
 .note:hover {
@@ -72,6 +80,8 @@
 }
 
 .note-image {
+    display: block;
+    margin: 0 auto;
     max-width: 250px;
     background-color: rgb(116, 32, 46);
 }
@@ -84,11 +94,13 @@
     text-decoration: line-through;
 }
 
-.delete-note-btn {
+.notes-app .delete-note-btn {
     z-index: 1;
     position: relative;
-    right: 35px;
+    right: 22px;
     top: 20px;
+    padding: 2px 6px;
+    width: unset;
 }
 
 .pin-note-btn {
@@ -97,8 +109,13 @@
     width: auto;
     display: block;
     position: relative;
-    left: 10px;
-    top: 25px;
+    right: 7px;
+    top: 10px;
     cursor: pointer;
 }
 
+@media (max-width: 600px) {
+    .actions-bar {
+        flex-direction: column;
+    }
+}

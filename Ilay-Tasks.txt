@@ -5,8 +5,8 @@
 - improve pin behaviour V
 - add image from url option? V
 - map note V
+- audio note V
 
-- audio note
 - make email connection
 - add time stamp to notes?
 - add ... lengthlimit to txt posts
