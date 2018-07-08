@@ -2,6 +2,8 @@ import utilsService from './utils-service.js'
 
 const NOTES_KEY = 'appsus-notes'
 
+var lastPinnedIdx = 0;
+
 var notes = utilsService.loadFromStorage(NOTES_KEY)
 if (!notes) {
     notes = getFakeNotes()
@@ -81,8 +83,13 @@ function handlePinNote(note) {
     note.isPinned = !note.isPinned;
     let noteIdx = notes.findIndex(currNote => currNote.id === note.id);
     notes.splice(noteIdx, 1)
-    if (note.isPinned) notes.unshift(note);
-    else notes.push(note)
+    if (note.isPinned) {
+        notes.unshift(note);
+        lastPinnedIdx++;
+    } else {
+        notes.splice(lastPinnedIdx-1, 0, note)
+        lastPinnedIdx--;
+    }
     utilsService.saveToStorage(NOTES_KEY, notes)
 }
 

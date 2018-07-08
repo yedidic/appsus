@@ -1,8 +1,8 @@
 
 - favicon V
 - pin note btn V
-- fix windowCenter in appsus
-- improve pin behaviour (service save idx of last pinned, ans func add to there with splice?) 
+- fix windowCenter in appsus V
+- improve pin behaviour V
 - add image from url option?
 - audio note
 - map note
