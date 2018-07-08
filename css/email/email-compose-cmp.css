@@ -1,5 +1,14 @@
 .email-compose{
-  width: 700px;
+  width: 100%;
+  background: url('../../img/email/psych.jpg') center center;
+}
+.email-compose .btn{
+  margin: 10px 0 0 10px;
+}
+.email-compose h1{
+  font-weight: bold;
+  text-align: center;
+  font-size: 2rem;
 }
 
 .email-compose .reply-address {
@@ -10,17 +19,23 @@
   color:  black;
   background: inherit;
 }
-.email-compose label, textarea{
+.email-compose label{
   font-family: inherit;
+  width: 320px;
   float: right;
-  margin: 10px
+  margin: 10px;
+  font-weight: 700;
+  color: white; 
 }
 .email-compose input {
   font-family: inherit;
+  float: right;
 }
 .email-compose textarea{
+  font-family: inherit;
   border: 1px rgb(71, 70, 73) solid;
-
-  max-width: 100%;
+  margin: 10px;
+  max-width: 700px;
   height: 250px;
+  padding: 10px;
 }

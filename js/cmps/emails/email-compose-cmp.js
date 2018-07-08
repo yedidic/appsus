@@ -8,7 +8,7 @@ export default {
     name: 'email-compose',
     template: `
     <section class="email-compose">
-    <router-link tag="button" to="/email/" class="back-btn">Back</router-link>
+    <router-link tag="button" to="/email/" class="back-btn btn"><i class="fas fa-inbox"></i> Back to Inbox</router-link>
        <form class="flex column">
             <h1>{{title}}</h1>
             <label>Subject: <input type="text" v-model="email.subject" placeholder="Subject"/></label>
@@ -20,9 +20,8 @@ export default {
             :class="{'reply-address': isReplyAddress}"/></label>
             <textarea v-model="email.msg" placeholder="Enter your message here"></textarea>  
 
-            <router-link to="/email" @click.native.prevent="setNewEmail" tag="button">Send!</router-link>
+            <router-link class="btn" to="/email" @click.native.prevent="setNewEmail" tag="button">Send!</router-link>
        </form>
-       <pre> {{email}} </pre>
     </section>
                 `,
 

@@ -23,10 +23,10 @@
   width: 100%;
 }
 .email-status .status-read {
-  background: green; 
+  background: rgb(9, 9, 59); 
 }
 .email-status .status-unread {
-  background: red;
+  background: rgb(230, 221, 221);
 }
 
 /* mobile */
