@@ -19,10 +19,13 @@ export default {
                     :emails="emails" 
                     @filter="setFilter"
                     ></email-filter>
-                    <email-list :emails="emailsToShow" @deleteEmail="deleteEmail" class="flex column" @opened="loadEmails">
+                    <email-list v-if="emailsToShow.length !== 0" :emails="emailsToShow" @deleteEmail="deleteEmail" class="flex column" @opened="loadEmails">
                     </email-list>
+                   <div class="no-emails-to-show" v-else>
+                    <h5  class="email-preview">No Emails</h5>
+                   </div>
             </div>
-
+            <div class="no-mobile" style="width: 25px;"></div>
             <email-details :emails="emails" @deleteEmail="deleteEmail" :class="{'no-mobile': !$route.params.emailId}"></email-details>            
     </main>
         <!-- <email-status></email-status> -->

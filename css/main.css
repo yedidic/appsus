@@ -8,7 +8,12 @@
 @import url("./email/email-filter-cmp.css");
 @import url("./email/email-details-cmp.css");
 @import url("./email/email-compose-cmp.css");
-/* !Email-App */
+/* /Email-App */
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+/* /Fonts */
+
 
 * {
     box-sizing: border-box
@@ -18,7 +23,8 @@
 body {
   margin: 0;
   padding: 0;
-  color: blue;
+  color: rgb(6, 6, 27);
+  font-family: 'Montserrat', sans-serif;
 }
 
 a {
@@ -92,4 +98,8 @@ ul {
 
 .appsus-links-container * {
   cursor: pointer;
+}
+.btn {
+  cursor: pointer;
+  font-family: inherit;
 }
