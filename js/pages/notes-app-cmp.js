@@ -1,6 +1,7 @@
 import notesService from '../services/notes-service.js'
 import textNote from '../cmps/notes/note-text-cmp.js'
 import todoNote from '../cmps/notes/note-todo-cmp.js'
+import mapNote from '../cmps/notes/note-map-cmp.js'
 
 export default {
     name: 'notes-app',
@@ -11,6 +12,7 @@ export default {
             <h1>Notes:</h1>
             <div class="actions-bar">
                 <div class="add-note-btns">
+                    <i class="fas fa-map-marked-alt fa-2x" @click="$router.push('/notes/edit-add/map/')"></i>
                     <i class="fas fa-image fa-2x" @click="$router.push('/notes/edit-add/text/image')"></i>
                     <i class="fas fa-pen-square fa-2x" @click="$router.push('/notes/edit-add/text/')"></i>
                     <i class="fas fa-list fa-2x" @click="$router.push('/notes/edit-add/todo/')"></i>
@@ -21,22 +23,25 @@ export default {
             </div>
         </header>
         <section class="notes-container">
-            <template v-for="note in notes">
-                <div class="note-container">
-                    <button :class="['btn' ,'pin-note-btn', {'pin-btn-pinned':note.isPinned}]" 
-                    @click.stop="pinNote(note)">
-                    <i class="fas fa-thumbtack"></i>
-                    </button>
-                    <component  
-                    :is="note.type" 
-                    :data="note.data" 
-                    :key="note.id" 
-                    :style="{'background-color': note.bgc}" 
-                    @click.native="editNote(note)">
-                    </component>
-                    <button class="btn delete-note-btn" @click="deleteNote(note.id)">X</button>
-                </div>
-            </template>
+            <div class="note-container" v-for="note in notes">
+                <img v-if="note.isPinned" class="pin-note-btn" @click.stop="pinNote(note)" 
+                    src="/img/pushed-pin-icon.png"/>
+                <img v-else class="pin-note-btn" @click.stop="pinNote(note)" 
+                    src="/img/unpushed-pin-icon.png"/>  
+                <!-- <button :class="['btn' ,'pin-note-btn', {'pin-btn-pinned':note.isPinned}]" 
+                >
+                <i class="fas fa-thumbtack"></i>
+                </button> -->
+                <component  
+                :is="note.type" 
+                :data="note.data" 
+                :id="note.id" 
+                :key="note.id" 
+                :style="{'background-color': note.bgc}" 
+                @click.native="editNote(note)">
+                </component>
+                <button class="btn delete-note-btn" @click="deleteNote(note.id)">X</button>
+            </div>
         </section>
     <router-view></router-view>
     </section>
@@ -48,6 +53,7 @@ export default {
         }
     },
     created() {
+        console.log('notes-app created')
         notesService.query()
             .then((data) => {
                 this.notes = data;
@@ -81,7 +87,7 @@ export default {
         textNote,
         todoNote,
         // audioNote,
-        // mapNote
+        mapNote,
     }
 
 }

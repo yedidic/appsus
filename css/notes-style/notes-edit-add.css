@@ -35,8 +35,6 @@
     transform: translate(-200px);
 }
 
-
-
 .edit-add-input {
     display: flex;
     flex-direction: column;
@@ -48,6 +46,11 @@
 }
 
 .edit-add-input input {
+    width: 300px;
+    padding: 5px;
+}
+
+.edit-add-input .loc-input-container {
     width: 300px;
 }
 

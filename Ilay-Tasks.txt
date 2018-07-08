@@ -1,25 +1,11 @@
 
-FULL CRUD:
-- add image note V 
-- add todo note V
-- delete note V
-- edit todo isDone V
-- sync todo preview-editing V
-
-SEARCH V
-
-PIN NOTE V
-
-DESIGN
-- make all edit/add a modal V
-
-EXTRA FEATURES:
-- fix sync between edit and data (make async!) V
-- add image from url option?
-- improve pin behaviour (service save idx of last pinned, ans func add to there with splice?) 
-
-BONUS:
-- audio note
+- favicon V
+- pin note btn V
+- fix windowCenter in appsus V
+- improve pin behaviour V
+- add image from url option? V
+- audio note - how do I download this lib??????
 - map note
 - make email connection
-
+- add time stamp to notes?
+- add ... lengthlimit to txt posts

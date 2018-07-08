@@ -13,22 +13,21 @@ export default {
                     <textarea v-model="note.data.text"></textarea>
                     <img v-if="note.data.imgUrl && !imageInputShown" :src="note.data.imgUrl"/>
                     <canvas v-if="uploadedImg" ref="canvas"/>
-                    <!-- <div v-if="imageInputShown" class="flex"> -->
-                    <picture-input v-if="imageInputShown" 
-                                    ref="pictureInput"
-                                    width="400" 
-                                    height="300" 
-                                    :crop="false"
-                                    margin="16" 
-                                    accept="image/jpeg,image/png" 
-                                    size="5" 
-                                    button-class="btn" >
-                    </picture-input>
-                    <!-- <input type="text" v-model="enteredImgUrl" placeholder="Enter an image url"> -->
-                    <!-- <input type="file" @change="onFileUpload" @click="getReadyForUpload"> -->
-                    <!-- <i class="fas fa-file-upload"></i> -->
-                    <!-- </input> -->
-                <!-- </div> -->
+                    <div v-if="imageInputShown">
+                        <picture-input ref="pictureInput"
+                                        width="400" 
+                                        height="300" 
+                                        :crop="false"
+                                        margin="16" 
+                                        accept="image/jpeg,image/png" 
+                                        size="5" 
+                                        button-class="btn" >
+                        </picture-input>
+                        <input type="text" v-model="enteredImgUrl" placeholder="Or enter an image url">
+                        <!-- <input type="file" @change="onFileUpload" @click="getReadyForUpload"> -->
+                        <!-- <i class="fas fa-file-upload"></i> -->
+                        <!-- </input> -->
+                    </div>
                     <i class="far fa-image" @click="imageInputShown = true"></i>
                 </div>
                 <input type="color" value="AB8BA8" v-model="note.bgc">
@@ -72,8 +71,9 @@ export default {
             this.$router.push('/notes');
         },
         saveNote() {
-            if (this.$refs.pictureInput) {
-                this.note.data.imgUrl = this.$refs.pictureInput.image
+            let newImgUrl = this.enteredImgUrl || this.$refs.pictureInput
+            if (newImgUrl) {
+                this.note.data.imgUrl = newImgUrl
             }
             notesService.saveNote(this.note)
                 .then(() => {
