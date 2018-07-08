@@ -13,7 +13,7 @@ import editAddAudioCmp from './cmps/notes/edit-add-audio-cmp.js'
 
 export default [
     {path: '/', component: appsusPage},
-    {path: '/email/compose/reply/:replyTo/:subject', component: emailCompose},
+    {path: '/email/compose/reply/:replyTo/:subject?', component: emailCompose},
     {path: '/email/compose/forward/:emailId', component: emailCompose},
     {path: '/email/compose/', component: emailCompose},
     {path: '/email/:emailId?', component: emailApp},

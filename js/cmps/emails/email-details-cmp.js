@@ -14,33 +14,33 @@ export default {
                 <router-link 
                     tag="button" 
                     to="/email" 
-                    class="ctrl-btn back-btn">
+                    class="ctrl-btn btn back-btn">
                         <i class="fas fa-inbox"></i><span> Back to Inbox</span>
                 </router-link>
                 <router-link 
                     tag="button" 
                     to="/email"  
                     @click.native="deleteEmail" 
-                    class="ctrl-btn">
+                    class="ctrl-btn btn">
                         <i class="fas fa-trash-alt"></i><span> Delete</span>
                 </router-link>
                 <router-link 
                     tag="button" 
                     :to="'/email/compose/reply/'+email.from.address+'/'+email.subject"
-                    class="ctrl-btn">
+                    class="ctrl-btn btn">
                         <i class="fas fa-reply""></i><span> Reply</span>
                 </router-link>
                 <router-link 
                     tag="button" 
                     :to="'/email/compose/forward/'+email.id"
-                    class="ctrl-btn">
+                    class="ctrl-btn btn">
                         <i  class="fas fa-arrow-left"></i><span> Forward</span>
                 </router-link>
                     <router-link 
                     tag="button" 
                     to="/email/" 
                     @click.native="makeUnread"
-                    class="ctrl-btn">
+                    class="ctrl-btn btn">
                         <i class="fas fa-envelope"></i><span> Make Unread</span>
                 </router-link>
             </div>
