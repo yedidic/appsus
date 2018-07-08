@@ -78,7 +78,7 @@ export default {
         }
     },
     watch: {
-        filterBy: function() {
+        filterBy() {
             notesService.getNotesForDisplay(this.filterBy)
             .then((data) => {
                 this.notes = data;
